@@ -1,0 +1,169 @@
+
+> connetra-homepage@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.23
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.148:3000
+
+ ✓ Starting...
+ ✓ Ready in 9.4s
+ ○ Compiling / ...
+ ✓ Compiled / in 6.3s (687 modules)
+ GET / 200 in 7349ms
+ GET / 200 in 367ms
+ GET / 200 in 222ms
+ GET / 200 in 2251ms
+ ✓ Compiled in 838ms (626 modules)
+ GET / 200 in 2460ms
+ GET / 200 in 463ms
+ GET / 200 in 835ms
+ GET / 200 in 1131ms
+ GET / 200 in 2543ms
+ GET / 200 in 679ms
+ GET / 200 in 528ms
+ ✓ Compiled in 1050ms (626 modules)
+ GET / 200 in 436ms
+ ✓ Compiled in 340ms (626 modules)
+ GET / 200 in 202ms
+ ✓ Compiled in 393ms (626 modules)
+ GET / 200 in 182ms
+ ✓ Compiled in 381ms (626 modules)
+ GET / 200 in 429ms
+ ✓ Compiled in 386ms (626 modules)
+ GET / 200 in 177ms
+ ✓ Compiled in 308ms (626 modules)
+ GET / 200 in 188ms
+ ✓ Compiled in 213ms (626 modules)
+ GET / 200 in 197ms
+ ✓ Compiled in 8s (364 modules)
+ GET / 200 in 210ms
+ GET / 200 in 612ms
+ GET / 200 in 486ms
+ GET / 200 in 660ms
+ ✓ Compiled in 5.6s (364 modules)
+ ✓ Compiled in 4.1s (626 modules)
+ GET / 200 in 3802ms
+ GET / 200 in 578ms
+ GET / 200 in 1816ms
+ GET / 200 in 353ms
+ ✓ Compiled in 750ms (364 modules)
+ GET / 200 in 1716ms
+ GET / 200 in 486ms
+ ✓ Compiled in 254ms (364 modules)
+ GET / 200 in 312ms
+ GET / 200 in 323ms
+ ✓ Compiled in 1579ms (626 modules)
+ GET / 200 in 316ms
+ ✓ Compiled in 284ms (626 modules)
+ GET / 200 in 186ms
+ ✓ Compiled in 2.2s (626 modules)
+ GET / 200 in 313ms
+ ✓ Compiled in 627ms (364 modules)
+ ✓ Compiled in 130ms (364 modules)
+ GET / 200 in 569ms
+ ✓ Compiled in 436ms (626 modules)
+ GET / 200 in 241ms
+ ✓ Compiled in 1152ms (626 modules)
+ GET / 200 in 415ms
+ GET / 200 in 828ms
+ GET / 200 in 2506ms
+ GET / 200 in 887ms
+ GET / 200 in 1576ms
+ ✓ Compiled in 920ms (626 modules)
+ GET / 200 in 387ms
+ ✓ Compiled in 426ms (626 modules)
+ GET / 200 in 267ms
+ ✓ Compiled in 366ms (626 modules)
+ GET / 200 in 272ms
+ GET / 200 in 449ms
+ GET / 200 in 1071ms
+ ✓ Compiled in 12.8s (610 modules)
+ ✓ Compiled in 901ms (624 modules)
+ GET / 200 in 480ms
+ ✓ Compiled in 333ms (624 modules)
+ GET / 200 in 254ms
+ ✓ Compiled in 750ms (624 modules)
+ GET / 200 in 217ms
+ ✓ Compiled in 465ms (624 modules)
+ GET / 200 in 206ms
+ ✓ Compiled in 530ms (624 modules)
+ GET / 200 in 233ms
+ ✓ Compiled in 865ms (624 modules)
+ GET / 200 in 549ms
+ GET / 200 in 742ms
+ GET / 200 in 519ms
+ GET / 200 in 543ms
+ GET / 200 in 600ms
+ GET / 200 in 555ms
+ GET / 200 in 402ms
+ GET / 200 in 564ms
+ GET / 200 in 961ms
+ ✓ Compiled in 2.6s (644 modules)
+ GET / 200 in 434ms
+ GET / 200 in 1180ms
+ ✓ Compiled in 18.3s (624 modules)
+ GET / 200 in 433ms
+ GET / 200 in 350ms
+ GET / 200 in 419ms
+ ✓ Compiled in 1075ms (624 modules)
+ GET / 200 in 276ms
+ ✓ Compiled in 718ms (624 modules)
+ GET / 200 in 326ms
+ ✓ Compiled in 876ms (624 modules)
+ GET / 200 in 284ms
+ ✓ Compiled in 574ms (624 modules)
+ GET / 200 in 196ms
+ GET / 200 in 492ms
+ GET / 200 in 940ms
+ ✓ Compiled in 514ms (624 modules)
+ GET / 200 in 327ms
+ GET / 200 in 1954ms
+ GET / 200 in 450ms
+ GET / 200 in 3250ms
+ GET / 200 in 720ms
+ ✓ Compiled in 1909ms (624 modules)
+ GET / 200 in 618ms
+ ✓ Compiled in 371ms (624 modules)
+ GET / 200 in 228ms
+ GET / 200 in 1164ms
+ ✓ Compiled in 722ms (624 modules)
+ GET / 200 in 527ms
+ GET / 200 in 591ms
+ GET / 200 in 500ms
+ GET / 200 in 454ms
+ ✓ Compiled in 851ms (624 modules)
+ GET / 200 in 404ms
+ GET / 200 in 744ms
+ GET / 200 in 1194ms
+ GET / 200 in 316ms
+ GET / 200 in 317ms
+ ✓ Compiled in 531ms (624 modules)
+ GET / 200 in 207ms
+ GET / 200 in 468ms
+ GET / 200 in 1357ms
+ GET / 200 in 524ms
+ ✓ Compiled in 897ms (624 modules)
+ GET / 200 in 296ms
+ GET / 200 in 505ms
+ GET / 200 in 702ms
+ GET / 200 in 528ms
+ ✓ Compiled in 10.8s (624 modules)
+ GET / 200 in 804ms
+ GET / 200 in 615ms
+ ✓ Compiled in 645ms (610 modules)
+ GET / 200 in 2011ms
+ GET / 200 in 1150ms
+ ✓ Compiled in 557ms (624 modules)
+ GET / 200 in 219ms
+ ✓ Compiled in 481ms (624 modules)
+ GET / 200 in 179ms
+ GET / 200 in 612ms
+ ✓ Compiled in 4.4s (363 modules)
+ GET / 200 in 258ms
+ ✓ Compiled in 414ms (610 modules)
+ GET / 200 in 246ms
+ ○ Compiling /integrations ...
+ ✓ Compiled /integrations in 4.7s (648 modules)
+ GET /integrations 200 in 6572ms
+[?25h

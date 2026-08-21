@@ -1,0 +1,620 @@
+/* ==========================================================================
+   Integrations directory page
+   ========================================================================== */
+
+.itg-page {
+  background: #f8fafd;
+}
+
+.itg-container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* --- Hero ----------------------------------------------------------------- */
+.itg-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 128px 0 48px;
+  text-align: center;
+}
+
+.itg-hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(100, 130, 220, 0.08) 0,
+    rgba(100, 130, 220, 0.08) 1px,
+    transparent 1px,
+    transparent 24px
+  );
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 42%, black 30%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 42%, black 30%, transparent 78%);
+}
+
+.itg-hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(120, 150, 245, 0.16), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(120, 185, 255, 0.16), transparent 75%);
+}
+
+.itg-hero-inner {
+  position: relative;
+}
+
+.itg-hero .eyebrow {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.itg-hero h1 {
+  margin: 18px auto 0;
+  max-width: 860px;
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #111b47;
+}
+
+.itg-hero-inner > p {
+  margin: 22px auto 0;
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #5b6b80;
+}
+
+.itg-hero-cta {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.itg-text-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #176bff;
+  transition: color 0.2s ease;
+}
+
+.itg-text-link:hover {
+  color: #0b4fd1;
+}
+
+/* --- Hero ecosystem visual -------------------------------------------------- */
+.itg-eco {
+  margin: 56px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.itg-eco-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.itg-eco-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  border: 1px solid rgba(20, 40, 80, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(30, 50, 80, 0.05);
+}
+
+.itg-eco-chip img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.itg-eco-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 56px;
+  background: #111b47;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(17, 27, 71, 0.28);
+}
+
+/* --- Scrolling logo card ---------------------------------------------------- */
+.itg-hero-card {
+  margin: 48px auto 0;
+  max-width: 1000px;
+  background: #fff;
+  border: 1px solid rgba(20, 40, 80, 0.1);
+  border-radius: 26px;
+  box-shadow:
+    0 24px 70px rgba(30, 50, 80, 0.12),
+    0 30px 90px rgba(120, 185, 255, 0.18);
+  overflow: hidden;
+}
+
+.itg-hero-card-head {
+  padding: 20px 26px 0;
+  text-align: center;
+}
+
+.itg-hero-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #8b96a6;
+}
+
+.itg-hero-marquee {
+  padding: 22px 0 24px;
+  overflow: hidden;
+}
+
+.itg-hero-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: itg-card-marquee 32s linear infinite;
+}
+
+.itg-hero-card:hover .itg-hero-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes itg-card-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.itg-hero-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  margin-right: 16px;
+  padding: 10px 18px;
+  background: #f6f9fd;
+  border: 1px solid #e9eef6;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.itg-hero-logo img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.itg-hero-logo-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1c2635;
+}
+
+/* --- Logo strip ------------------------------------------------------------ */
+.itg-logo-strip-wrap {
+  padding: 20px 0 8px;
+}
+
+.itg-logo-strip {
+  background: #f5f8fc;
+  border: 1px solid rgba(20, 40, 80, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.itg-logo-track {
+  display: flex;
+  width: max-content;
+  padding: 20px 0;
+  animation: itg-marquee 34s linear infinite;
+}
+
+.itg-logo-strip:hover .itg-logo-track {
+  animation-play-state: paused;
+}
+
+@keyframes itg-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.itg-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  margin-right: 18px;
+  background: #fff;
+  border: 1px solid rgba(20, 40, 80, 0.08);
+  border-radius: 12px;
+}
+
+.itg-logo-chip img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* --- Directory ------------------------------------------------------------- */
+.itg-directory {
+  padding: 72px 0 40px;
+  scroll-margin-top: 96px;
+}
+
+/* --- Search ---------------------------------------------------------------- */
+.itg-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  margin-top: 36px;
+  padding: 0 18px;
+  background: #fff;
+  border: 1px solid rgba(20, 40, 80, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(30, 50, 80, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.itg-search:focus-within {
+  border-color: rgba(23, 107, 255, 0.5);
+  box-shadow: 0 0 0 4px rgba(23, 107, 255, 0.08);
+}
+
+.itg-search > svg {
+  flex: none;
+  color: #8b96a6;
+}
+
+.itg-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  color: #1c2635;
+}
+
+.itg-search input::placeholder {
+  color: #9aa4b1;
+}
+
+.itg-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.itg-clear:hover {
+  color: #111b47;
+  background: #f1f5f9;
+}
+
+.itg-kbd {
+  flex: none;
+  padding: 3px 7px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  border: 1px solid #e4e8ee;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+/* --- Filters --------------------------------------------------------------- */
+.itg-filters {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.itg-pill {
+  border: 1px solid #e4e8ee;
+  background: #fff;
+  color: #4b5563;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.itg-pill:hover {
+  border-color: rgba(23, 107, 255, 0.4);
+  color: #176bff;
+}
+
+.itg-pill.active {
+  background: #176bff;
+  border-color: #176bff;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(23, 107, 255, 0.25);
+}
+
+.itg-pill-count {
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8b96a6;
+}
+
+.itg-pill:hover .itg-pill-count {
+  color: #176bff;
+}
+
+.itg-pill.active .itg-pill-count {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* --- Cards ----------------------------------------------------------------- */
+.itg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.itg-card {
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid rgba(20, 40, 80, 0.1);
+  border-radius: 20px;
+  transition: transform 0.22s ease-out, border-color 0.22s ease-out,
+    box-shadow 0.22s ease-out;
+}
+
+.itg-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(23, 107, 255, 0.35);
+  box-shadow: 0 16px 40px rgba(30, 50, 80, 0.1);
+}
+
+.itg-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.itg-card-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #f6f9fd;
+  border: 1px solid #e9eef6;
+  border-radius: 14px;
+  transition: transform 0.22s ease-out;
+}
+
+.itg-card:hover .itg-card-logo {
+  transform: scale(1.04);
+}
+
+.itg-card-logo img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.itg-card-category {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #176bff;
+  background: rgba(23, 107, 255, 0.08);
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.itg-card-name {
+  margin: 18px 0 8px;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: #111b47;
+}
+
+.itg-card-desc {
+  flex: 1;
+  margin: 0 0 22px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #5b6b80;
+}
+
+.itg-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.itg-card:hover .itg-card-link {
+  color: #176bff;
+}
+
+.itg-card-link svg {
+  transition: transform 0.2s ease;
+}
+
+.itg-card:hover .itg-card-link svg {
+  transform: translateX(3px);
+}
+
+/* --- Empty state ------------------------------------------------------------ */
+.itg-empty {
+  margin-top: 20px;
+  padding: 72px 24px;
+  text-align: center;
+  background: #fff;
+  border: 1px dashed rgba(20, 40, 80, 0.18);
+  border-radius: 20px;
+}
+
+.itg-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  background: #f1f5fb;
+  color: #64748b;
+  border-radius: 14px;
+}
+
+.itg-empty h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #111b47;
+}
+
+.itg-empty p {
+  margin: 0 0 22px;
+  font-size: 14.5px;
+  color: #64748b;
+}
+
+/* --- Responsive ------------------------------------------------------------ */
+@media (max-width: 1080px) {
+  .itg-container {
+    padding: 0 32px;
+  }
+
+  .itg-hero {
+    padding-top: 96px;
+  }
+}
+
+@media (max-width: 768px) {
+  .itg-container {
+    padding: 0 20px;
+  }
+
+  .itg-hero {
+    padding: 80px 0 24px;
+  }
+
+  .itg-hero h1 {
+    font-size: 40px;
+  }
+
+  .itg-eco {
+    gap: 14px;
+  }
+
+  .itg-eco-chip {
+    width: 48px;
+    height: 48px;
+  }
+
+  .itg-eco-chip img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .itg-eco-center {
+    width: 104px;
+    height: 48px;
+    font-size: 11px;
+  }
+
+  .itg-logo-strip-wrap {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .itg-logo-strip-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .itg-logo-track {
+    animation: none;
+  }
+
+  .itg-directory {
+    padding-top: 64px;
+  }
+
+  .itg-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+  }
+
+  .itg-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .itg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .itg-card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .itg-cta-card {
+    padding: 48px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .itg-logo-track {
+    animation: none;
+  }
+
+  .itg-hero-marquee-track {
+    animation: none;
+  }
+}

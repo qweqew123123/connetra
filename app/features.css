@@ -1,0 +1,348 @@
+/* ---------------------------------------------------------------------------
+   Connetra — Scroll-driven FEATURES section
+   Replaces the old "Data Problem" section. Loaded after globals.css / hero.css.
+--------------------------------------------------------------------------- */
+
+.features-wrap {
+  position: relative;
+  background: #06101f;
+}
+
+/* --- Sticky scroll container --------------------------------------------- */
+.features-scroll {
+  height: 300vh;
+  position: relative;
+}
+
+.features-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  transition: background-color 0.8s ease;
+  display: flex;
+  align-items: center;
+}
+
+.features-viewport::before {
+  content: "";
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(40, 100, 220, 0.1), transparent 65%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.features-stage {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Left content (crossfade slides) -------------------------------------- */
+.feature-slides {
+  position: relative;
+  min-height: 400px;
+}
+
+.feature-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+
+.feature-content.active {
+  opacity: 1;
+}
+
+.feature-num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #64748b;
+  margin-bottom: 22px;
+}
+
+.feature-title {
+  font-size: clamp(34px, 3.4vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+  white-space: pre-line;
+}
+
+.feature-desc {
+  font-size: 17px;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 470px;
+  margin: 0 0 26px;
+}
+
+.feature-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 46px;
+  padding: 0 20px;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 9px;
+  color: #0a0a0a;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.feature-cta:hover {
+  background: #111b47;
+  border-color: #111b47;
+  color: #fff;
+}
+
+.feature-points {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.feature-points li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.feature-points svg {
+  color: #2e9b6a;
+  flex: none;
+}
+
+/* --- Right video ---------------------------------------- */
+.feature-videos {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 10;
+  justify-self: end;
+}
+
+.feature-video-wrap {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.feature-video-wrap.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.feature-video-card {
+  width: 100%;
+  height: 100%;
+  background: #0b1626;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-video-top {
+  height: 44px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: #0e1a2b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.fv-url {
+  margin: 0 auto;
+  font-size: 11px;
+  color: #7c8ca2;
+  background: #122033;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 7px;
+  padding: 5px 16px;
+}
+
+.feature-video-body {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-video-body video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+
+/* Video placeholder box (shown until a video file is added) */
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(40, 100, 220, 0.12), transparent 60%),
+    #0b1626;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.vp-play {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #176bff;
+  box-shadow: 0 0 0 10px rgba(23, 107, 255, 0.12), 0 18px 40px rgba(0, 0, 0, 0.4);
+  margin-bottom: 6px;
+}
+
+.video-placeholder b {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.02em;
+}
+
+.video-placeholder small {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* --- Stacked mode (mobile / reduced motion) --------------------------------- */
+.features-stacked {
+  background: #06101f;
+}
+
+.feature-stacked {
+  padding: 84px 24px;
+}
+
+.feature-stacked + .feature-stacked {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.feature-stacked-grid {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 48px;
+  align-items: center;
+}
+
+.feature-stacked .feature-content {
+  position: static;
+  opacity: 1;
+  transform: none;
+}
+
+.feature-stacked .feature-video-wrap {
+  position: static;
+  opacity: 1;
+  transform: none;
+  min-width: 0;
+}
+
+/* --- Responsive ------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .features-stage,
+  .feature-stacked-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-slides {
+    min-height: 0;
+  }
+
+  .feature-videos {
+    max-width: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .features-intro {
+    padding: 76px 20px 60px;
+  }
+
+  .features-intro h2 {
+    font-size: 38px;
+  }
+
+  .features-intro p {
+    font-size: 16px;
+  }
+
+  .feature-stacked {
+    padding: 60px 20px;
+  }
+
+  .feature-title {
+    font-size: 36px;
+  }
+
+  .feature-desc {
+    font-size: 16px;
+  }
+
+  .feature-videos {
+    aspect-ratio: 16 / 10;
+  }
+
+  .feature-video-card {
+    border-radius: 14px;
+  }
+}
+
+/* --- Reduced motion safety net ----------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .features-viewport {
+    transition: none;
+  }
+
+  .feature-content,
+  .feature-video-wrap {
+    transition: none;
+  }
+}
