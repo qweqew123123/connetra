@@ -5,7 +5,7 @@ import ShowcaseTabs, { type ShowcaseTab } from "./ShowcaseTabs";
 
 const showcaseTabs: ShowcaseTab[] = [
   { id: "explore", label: "Explore" },
-  { id: "lineage", label: "Timeline" },
+  { id: "lineage", label: "Time" },
   { id: "monitor", label: "Search" },
 ];
 

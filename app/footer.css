@@ -6,9 +6,22 @@
 .footer-frame {
   width: min(1400px, 100%);
   margin: 0 auto;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
 }
+
+.footer-frame::before,
+.footer-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.footer-frame::before { left: 0; }
+.footer-frame::after { right: 0; }
 
 /* --- CTA banner -------------------------------------------------------------- */
 .foot-cta {
@@ -44,6 +57,18 @@
 @keyframes foot-glow-pulse {
   0%, 100% { opacity: 0.75; }
   50% { opacity: 1; }
+}
+
+.foot-cta-dotgrid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.foot-cta-dotgrid .dot-grid__canvas {
+  opacity: 0.9;
 }
 
 .foot-cta-content {
@@ -242,9 +267,9 @@
   }
 }
 @media (max-width: 768px) {
-  .footer-frame {
-    border-left: none;
-    border-right: none;
+  .footer-frame::before,
+  .footer-frame::after {
+    display: none;
   }
 
   .foot-cta {

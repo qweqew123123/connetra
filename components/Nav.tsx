@@ -40,14 +40,19 @@ export default function Nav() {
                <a href="#">Roadmap</a>
              </div>
            </div>
-           <a
-             href="/integrations"
-             className={pathname === "/integrations" ? "active" : ""}
-           >
-             Integrations
-           </a>
-          <a href="#cta">Pricing</a>
-          <div className="nav-drop">
+            <a
+              href="/integrations"
+              className={pathname === "/integrations" ? "active" : ""}
+            >
+              Integrations
+            </a>
+            <a
+              href="/pricing"
+              className={pathname === "/pricing" ? "active" : ""}
+            >
+              Pricing
+            </a>
+           <div className="nav-drop">
             <a href="#cta">
               Resources <ChevronDown size={14} />
             </a>
@@ -89,7 +94,12 @@ export default function Nav() {
           >
             Integrations
           </a>
-          <a href="#cta">Pricing</a>
+          <a
+            href="/pricing"
+            className={pathname === "/pricing" ? "active" : ""}
+          >
+            Pricing
+          </a>
           <a href="#cta">Resources</a>
           <a className="button small" href="#cta">
             Sign up <ArrowRight size={14} />

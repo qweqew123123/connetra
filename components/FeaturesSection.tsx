@@ -5,13 +5,15 @@ import { features } from "../data/features";
 import FeatureContent from "./FeatureContent";
 import FeatureVideo from "./FeatureVideo";
 
-const backgrounds = ["#06101f", "#081323", "#0a1728"];
+const backgrounds = ["#09122A", "#09122A", "#09122A"];
 
 export default function FeaturesSection() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
   const [active, setActive] = useState(0);
   const [mode, setMode] = useState<"sticky" | "stacked">("sticky");
+  const [sectionInView, setSectionInView] = useState(false);
 
   useEffect(() => {
     const mqStack = window.matchMedia("(max-width: 1079px)");
@@ -24,6 +26,17 @@ export default function FeaturesSection() {
       mqStack.removeEventListener("change", check);
       mqReduced.removeEventListener("change", check);
     };
+  }, []);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setSectionInView(entry.isIntersecting),
+      { threshold: 0.18, rootMargin: "0px 0px -12% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
@@ -52,12 +65,16 @@ export default function FeaturesSection() {
   }, [mode]);
 
   return (
-    <section className="features-wrap" id="features">
+    <section ref={sectionRef} className="features-wrap" id="features">
       {mode === "sticky" ? (
         <div className="features-scroll" ref={wrapRef}>
           <div
             className="features-viewport"
-            style={{ backgroundColor: backgrounds[active] }}
+            data-active={active}
+            data-theme={sectionInView ? "dark" : "light"}
+            style={{
+              backgroundColor: sectionInView ? backgrounds[active] : "#ffffff",
+            }}
           >
             <div className="features-stage">
               <div className="feature-slides">
@@ -79,7 +96,7 @@ export default function FeaturesSection() {
           </div>
         </div>
       ) : (
-        <div className="features-stacked">
+        <div className="features-stacked" data-theme={sectionInView ? "dark" : "light"}>
           {features.map((f) => (
             <article className="feature-stacked" key={f.id}>
               <div className="feature-stacked-grid">

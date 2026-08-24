@@ -7,13 +7,17 @@ import { featuresPage } from "../../data/features-page";
 import "./features.css";
 
 export default function FeaturesPage() {
+  const variant = "var2" as const;
+
   return (
-    <main className="fp-page">
+    <main className={`fp-page ${variant}`}>
       <Nav />
       <FeaturesHero />
-      {featuresPage.map((feature, i) => (
-        <FeatureSection key={feature.number} feature={feature} reverse={i === 1} />
-      ))}
+      <div className="fp-features-cover-group">
+        {featuresPage.map((feature, i) => (
+          <FeatureSection key={feature.number} feature={feature} reverse={i === 1} variant={variant} index={i} />
+        ))}
+      </div>
       <IntegrationsSection />
       <Footer />
     </main>

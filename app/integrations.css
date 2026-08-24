@@ -30,6 +30,15 @@
 
 .integration-copy .button {
   margin-top: 28px;
+  background: #3559C7;
+  border-color: #3559C7;
+  box-shadow: 0 8px 22px rgba(53, 89, 199, 0.22);
+}
+
+.integration-copy .button:hover {
+  background: #2e4db0;
+  border-color: #2e4db0;
+  box-shadow: 0 12px 28px rgba(53, 89, 199, 0.32);
 }
 
 .text-link svg {

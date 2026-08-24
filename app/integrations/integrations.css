@@ -15,9 +15,94 @@
 /* --- Hero ----------------------------------------------------------------- */
 .itg-hero {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
+  margin-top: -92px;
   padding: 128px 0 48px;
   text-align: center;
+}
+
+.itg-hero.var1 .itg-hero-var2 {
+  display: none;
+}
+
+.itg-hero.var2 .itg-hero-grid,
+.itg-hero.var2 .itg-hero-glow {
+  display: none;
+}
+
+.itg-hero.var2 {
+  background: linear-gradient(180deg, #101c3a 0%, #08101f 100%);
+}
+
+.itg-hero-var2 {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.itg-hero-dotgrid {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+}
+
+.itg-hero-dotgrid .dot-grid__canvas {
+  opacity: 0.9;
+}
+
+.itg-hero-var2-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 42%, rgba(90, 120, 255, 0.28) 0%, transparent 62%),
+    radial-gradient(ellipse 36% 42% at 50% 100%, rgba(60, 90, 255, 0.32) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.itg-hero-var2-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(7, 10, 31, 0) 0%, rgba(7, 10, 31, 0) 96%, #f8fafd 96%);
+  pointer-events: none;
+}
+
+.itg-hero.var2 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.itg-hero.var2 .eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ee89e;
+  box-shadow: 0 0 10px rgba(46, 232, 158, 0.6);
+  flex: none;
+}
+
+.itg-hero.var2 h1 {
+  color: #ffffff;
+}
+
+.itg-hero.var2 .itg-hero-inner > p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.itg-hero.var2 .itg-hero-card {
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 .itg-hero-grid {
@@ -83,7 +168,7 @@
 .itg-text-link {
   font-size: 14px;
   font-weight: 600;
-  color: #176bff;
+  color: #3559C7;
   transition: color 0.2s ease;
 }
 
@@ -358,12 +443,12 @@
 
 .itg-pill:hover {
   border-color: rgba(23, 107, 255, 0.4);
-  color: #176bff;
+  color: #3559C7;
 }
 
 .itg-pill.active {
-  background: #176bff;
-  border-color: #176bff;
+  background: #3559C7;
+  border-color: #3559C7;
   color: #fff;
   box-shadow: 0 6px 16px rgba(23, 107, 255, 0.25);
 }
@@ -376,7 +461,7 @@
 }
 
 .itg-pill:hover .itg-pill-count {
-  color: #176bff;
+  color: #3559C7;
 }
 
 .itg-pill.active .itg-pill-count {
@@ -442,7 +527,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #176bff;
+  color: #3559C7;
   background: rgba(23, 107, 255, 0.08);
   padding: 5px 10px;
   border-radius: 999px;
@@ -476,7 +561,7 @@
 }
 
 .itg-card:hover .itg-card-link {
-  color: #176bff;
+  color: #3559C7;
 }
 
 .itg-card-link svg {
@@ -532,12 +617,19 @@
   }
 }
 
+@media (max-width: 700px) {
+  .itg-hero {
+    margin-top: -74px;
+  }
+}
+
 @media (max-width: 768px) {
   .itg-container {
     padding: 0 20px;
   }
 
   .itg-hero {
+    margin-top: -74px;
     padding: 80px 0 24px;
   }
 
