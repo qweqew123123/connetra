@@ -3,14 +3,14 @@ import { ArrowRight } from "lucide-react";
 export default function HeroCopy() {
   return (
     <>
-      <div className="eyebrow">DATA DISCOVERY & VISIBILITY</div>
+      <div className="eyebrow">DATA DISCOVERY & AI</div>
       <h1 className="chero-h1">
-        <span className="strong">Discover your data landscape.</span>
+        <span className="strong">Discover your data.</span>
+        <span className="strong">Ask anything.</span>
       </h1>
       <p className="chero-desc">
-        Connetra brings your data ecosystem into one connected view, giving your
-        team the visibility and control to discover, understand, and monitor
-        data.
+        Connetra connects your entire data ecosystem into one intelligent view, so your team can discover, understand,
+        and monitor data — or simply ask the AI agent to find the answers you need.
       </p>
       <div className="chero-cta">
         <a className="button" href="#cta">

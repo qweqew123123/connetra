@@ -7,18 +7,21 @@ const showcaseTabs: ShowcaseTab[] = [
   { id: "explore", label: "Explore" },
   { id: "lineage", label: "Time" },
   { id: "monitor", label: "Search" },
+  { id: "assistant", label: "AI Assistant" },
 ];
 
 const tabImages: Record<string, string> = {
   explore: "/images/tab-explore.png",
   lineage: "/images/tab-timeline.png",
   monitor: "/images/tab-search.png",
+  assistant: "/images/ai-chatbot.png",
 };
 
 const tabAlts: Record<string, string> = {
   explore: "Connetra Explore view showing connected data assets",
   lineage: "Connetra Timeline view showing data lineage",
   monitor: "Connetra Search view showing data discovery results",
+  assistant: "Connetra AI Assistant chat interface",
 };
 
 export default function ProductShowcase() {

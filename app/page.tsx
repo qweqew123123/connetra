@@ -1,6 +1,7 @@
 import { Bell, Database, GitBranch } from "lucide-react";
 import ConnetraHero from "../components/ConnetraHero";
 import FeaturesSection from "../components/FeaturesSection";
+import AIAgentSection from "../components/AIAgentSection";
 import IntegrationsSection from "../components/IntegrationsSection";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer/Footer";
@@ -33,6 +34,8 @@ export default function Home() {
       </section>
 
       <FeaturesSection />
+
+      <AIAgentSection />
 
       <IntegrationsSection />
 
