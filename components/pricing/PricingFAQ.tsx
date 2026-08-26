@@ -50,12 +50,6 @@ export default function PricingFAQ() {
                     role="region"
                     aria-labelledby={`faq-question-${index}`}
                     className="faq-answer"
-                    style={{
-                      maxHeight: openIndex === index ? "500px" : "0",
-                      opacity: openIndex === index ? 1 : 0,
-                      paddingTop: openIndex === index ? "16px" : "0",
-                      marginTop: openIndex === index ? "8px" : "0",
-                    }}
                   >
                     <p>{faq.a}</p>
                   </div>

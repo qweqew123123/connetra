@@ -29,8 +29,8 @@ export const footerGroups: FooterGroup[] = [
   {
     title: "Resources",
     links: [
-      { label: "Documentation", href: "#" },
-      { label: "Blog", href: "#" },
+      { label: "Documentation", href: "/docs/intro" },
+      { label: "Blog", href: "/blog" },
       { label: "Resources", href: "#" },
       { label: "FAQs", href: "#" },
     ],

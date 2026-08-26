@@ -73,29 +73,35 @@
     );
 }
 
-/* --- Var 2 — like homepage hero (dark + DotGrid) ---------------------------- */
-.fp-hero.var1 .fp-hero-var2 {
+/* --- Var 1 & Var 2 — Hero variants with DotGrid ----------------------- */
+.fp-hero.var1 .fp-hero-var2-new {
   display: none;
 }
 
-.fp-hero.var2 .fp-hero-grid,
-.fp-hero.var2 .fp-hero-glow {
+.fp-hero.var2 .fp-hero-var2 {
   display: none;
+}
+
+.fp-hero.var1 {
+  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 100%);
 }
 
 .fp-hero.var2 {
-  background: linear-gradient(180deg, #101c3a 0%, #08101f 100%);
+  background: linear-gradient(180deg, #375AC8 0%, #728FDD 100%);
 }
 
+/* Var 1 (Homepage Hero Var 1 style) */
 .fp-hero-var2 {
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
+  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 100%);
 }
 
-.fp-hero-dotgrid {
+.fp-hero-dotgrid,
+.fp-hero-var2-new-dotgrid {
   position: absolute;
   inset: 0;
   opacity: 1;
@@ -108,9 +114,7 @@
 .fp-hero-var2-glow {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 65% 55% at 50% 42%, rgba(90, 120, 255, 0.28) 0%, transparent 62%),
-    radial-gradient(ellipse 36% 42% at 50% 100%, rgba(60, 90, 255, 0.32) 0%, transparent 68%);
+  background: radial-gradient(ellipse 55% 42% at 50% 32%, rgba(255, 255, 255, 0.85) 0%, rgba(191, 212, 255, 0.45) 36%, transparent 68%);
   pointer-events: none;
 }
 
@@ -121,19 +125,102 @@
   pointer-events: none;
 }
 
+/* Var 2 blue gradient background */
+.fp-hero-var2-new {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(180deg, #375AC8 0%, #728FDD 100%);
+}
+
+.fp-hero-var2-new-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 58% 42% at 50% 36%, rgba(255, 255, 255, 0.18) 0%, transparent 64%);
+  pointer-events: none;
+}
+
+.fp-hero-var2-new-fade {
+  display: none;
+}
+
+.fp-hero-var2-new-dotgrid .dot-grid__canvas {
+  opacity: 0.28;
+}
+
+/* Variant Switch */
+.fp-hero .variant-switch {
+  position: absolute;
+  top: 104px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(20, 40, 70, 0.1);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(20, 40, 70, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.fp-hero .variant-switch button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #5b6b80;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fp-hero .variant-switch button:hover {
+  color: #111b47;
+  background: rgba(20, 40, 70, 0.06);
+}
+
+.fp-hero .variant-switch button.active {
+  background: #111b47;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(17, 27, 71, 0.22);
+}
+
+/* Text and Badges */
+.fp-hero.var1 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #09122A;
+}
+
 .fp-hero.var2 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 7px 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.95);
 }
 
+.fp-hero.var1 .eyebrow::before,
 .fp-hero.var2 .eyebrow::before {
   content: "";
   width: 8px;
@@ -144,13 +231,22 @@
   flex: none;
 }
 
+.fp-hero.var1 h1 {
+  color: #09122A !important;
+}
+
 .fp-hero.var2 h1 {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+.fp-hero.var1 .fp-hero-inner > p,
+.fp-hero.var1 p {
+  color: #5b6b80 !important;
 }
 
 .fp-hero.var2 .fp-hero-inner > p,
 .fp-hero.var2 p {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .fp-hero-inner {

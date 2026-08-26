@@ -52,21 +52,26 @@ export default function Nav() {
             >
               Pricing
             </a>
-           <div className="nav-drop">
-            <a href="#cta">
-              Resources <ChevronDown size={14} />
-            </a>
-            <div className="nav-drop-menu">
-              <a href="#">Documentation</a>
-              <a
-                href="/blog"
-                className={pathname === "/blog" ? "active" : ""}
-              >
-                Blog
-              </a>
-              <a href="#">Support</a>
-            </div>
-          </div>
+            <div className="nav-drop">
+             <a href="#resources">
+               Resources <ChevronDown size={14} />
+             </a>
+             <div className="nav-drop-menu">
+               <a
+                 href="/docs/intro"
+                 className={pathname.startsWith("/docs") ? "active" : ""}
+               >
+                 Documentation
+               </a>
+               <a
+                 href="/blog"
+                 className={pathname === "/blog" ? "active" : ""}
+               >
+                 Blog
+               </a>
+               <a href="#">Support</a>
+             </div>
+           </div>
         </nav>
         <div className="nav-actions">
           <a className="login" href="#">
@@ -100,7 +105,18 @@ export default function Nav() {
           >
             Pricing
           </a>
-          <a href="#cta">Resources</a>
+          <a
+            href="/docs/intro"
+            className={pathname.startsWith("/docs") ? "active" : ""}
+          >
+            Documentation
+          </a>
+          <a
+            href="/blog"
+            className={pathname === "/blog" ? "active" : ""}
+          >
+            Blog
+          </a>
           <a className="button small" href="#cta">
             Sign up <ArrowRight size={14} />
           </a>

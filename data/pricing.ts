@@ -73,6 +73,104 @@ export const pricingOverviewPlans = [
   { id: "enterprise", name: "Enterprise", price: "Custom", sub: "tailored pricing", cta: "Book demo", href: "mailto:contact@connetra.com?subject=Enterprise%20Plan", highlighted: false },
 ];
 
+export interface DetailedItem {
+  title: string;
+  description: string;
+}
+
+export interface DetailedCategory {
+  category: string;
+  items: DetailedItem[];
+}
+
+export const detailedCategories: DetailedCategory[] = [
+  {
+    category: "USAGE",
+    items: [
+      {
+        title: "Unlimited Data Sources",
+        description:
+          "Connect as many database and warehouse sources as your organization requires. Connetra supports direct connection to MySQL, MSSQL, Snowflake, Redshift, PostgreSQL, Google BigQuery, MariaDB, Oracle, DBT, Power BI, Tableau, Databricks, and Airflow with no artificial caps or connector limits.",
+      },
+      {
+        title: "Unlimited Data Assets",
+        description:
+          "Catalog every table, view, schema, dashboard, analysis, and data document across your entire ecosystem. Whether managing hundreds or tens of millions of assets, your workspace scales seamlessly with no restrictions.",
+      },
+      {
+        title: "Unlimited Alerts",
+        description:
+          "Create as many proactive monitoring alerts as needed across your connected data assets. Set up notifications for schema drift, structural table changes, and freshness anomalies to ensure data reliability across teams.",
+      },
+    ],
+  },
+  {
+    category: "PAGES",
+    items: [
+      {
+        title: "Explore: Fully Flexible Data Lineage View",
+        description:
+          "An interactive visual canvas that maps upstream and downstream table relationships and dependencies. Easily trace where data originates, how it transforms, and which downstream dashboards and reports rely on it.",
+      },
+      {
+        title: "Timeline: Display Data In Chronological Order With Filtering & Breakdown Functionality",
+        description:
+          "A dedicated timeline interface that displays your metadata history in chronological order. Apply multi-attribute filters and classification breakdowns to track schema changes, table updates, and dataset evolution over time.",
+      },
+      {
+        title: "Search: Tabular Results Of Data Assets",
+        description:
+          "A fast, intuitive tabular search engine that allows teams to search across all data assets, inspect table metadata, review descriptions, filter by domain, and find trusted data instantly.",
+      },
+      {
+        title: "Add: Input Data Assets & Create Alerts",
+        description:
+          "A streamlined workflow to connect new data sources, register catalog assets, configure custom classification tags, and immediately attach real-time monitoring rules.",
+      },
+    ],
+  },
+  {
+    category: "FEATURES",
+    items: [
+      {
+        title: "Integrations (MySQL, MSSQL, Snowflake, Redshift, Slack, Postgresql, Google BigQuery, MariaDB, Oracle, DBT, Power BI, Tableau, Databricks)",
+        description:
+          "Native pre-built integrations for modern databases, warehouses, BI platforms, and orchestration tools including MySQL, MSSQL, Snowflake, Amazon Redshift, PostgreSQL, Google BigQuery, MariaDB, Oracle, DBT, Power BI, Tableau, Databricks, Airflow, and Slack.",
+      },
+      {
+        title: "Embed Preview Of Documents From Google Drive/Box/OneDrive",
+        description:
+          "Embed and preview live data documentation, dictionaries, and project specifications directly alongside cataloged tables using seamless integrations with Google Drive, Box, and Microsoft OneDrive.",
+      },
+      {
+        title: "Customizable Breakdowns To Allow For Easy Discovery",
+        description:
+          "Define custom multi-tiered classification hierarchies and tagging schemas to group data assets by business domain, project, team, or lifecycle stage for intuitive team discovery and governance.",
+      },
+      {
+        title: "Simple Alert Creation To Allow For Data Monitoring",
+        description:
+          "Easily configure condition-based and threshold-based monitoring rules on active data connectors to detect schema alterations, column removals, and data pipeline delays with instant team notifications.",
+      },
+      {
+        title: "Metadata & Preview Of Tables",
+        description:
+          "Inspect table schema definitions, column data types, row counts, and sample records directly in the interface without needing to write warehouse queries or run external scripts.",
+      },
+      {
+        title: "Import/Export (CSV)",
+        description:
+          "Export asset catalogs and metadata definitions to CSV for offline reporting, or bulk import existing documentation and tag taxonomies directly into your Connetra workspace.",
+      },
+      {
+        title: "Email Support",
+        description:
+          "Direct email support from our engineering and product team to assist with workspace setup, data connector configuration, and custom catalog requirements.",
+      },
+    ],
+  },
+];
+
 export const comparisonSections = [
   {
     title: "USAGE",

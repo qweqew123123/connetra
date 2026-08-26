@@ -1,63 +1,57 @@
 "use client";
 
-import { Check, X } from "lucide-react";
-import { comparisonSections, pricingPlans, customPlan } from "../../data/pricing";
+import { Database, Layout, Sparkles } from "lucide-react";
+import { detailedCategories } from "../../data/pricing";
 
 export default function PricingComparison() {
-  const starter = pricingPlans[0];
-  const growth = pricingPlans[1];
+  const getCategoryIcon = (category: string) => {
+    switch (category.toUpperCase()) {
+      case "USAGE":
+        return <Database size={19} className="detailed-category-icon" />;
+      case "PAGES":
+        return <Layout size={19} className="detailed-category-icon" />;
+      case "FEATURES":
+        return <Sparkles size={19} className="detailed-category-icon" />;
+      default:
+        return <Database size={19} className="detailed-category-icon" />;
+    }
+  };
 
   return (
-    <section className="pricing-compare">
+    <section className="pricing-compare" id="detailed-overview">
       <div className="pricing-container">
         <div className="pricing-compare-head">
-          <div className="pricing-compare-label">Compare plans</div>
+          <div className="pricing-compare-label">DETAILED BREAKDOWN</div>
           <h2>Detailed overview</h2>
-          <p>Everything included in every plan — compare usage, pages and features.</p>
+          <p>
+            A comprehensive look at all usage limits, page capabilities, and platform features included in Connetra.
+          </p>
         </div>
 
-        <div className="compare-card">
-          <div className="compare-header">
-            <div className="compare-header-cell empty" aria-hidden="true"></div>
-            <div className="compare-header-col">
-              <span className="compare-plan-name">{starter.name}</span>
-              <b className="compare-price">${starter.yearlyPrice % 1 === 0 ? starter.yearlyPrice.toFixed(0) : starter.yearlyPrice.toFixed(2)}/mo</b>
-              <small>billed yearly</small>
-              <a className="compare-cta" href={starter.href}>
-                Get started
-              </a>
-            </div>
-            <div className="compare-header-col featured">
-              <span className="compare-plan-name">{growth.name}</span>
-              <b className="compare-price">${growth.yearlyPrice % 1 === 0 ? growth.yearlyPrice.toFixed(0) : growth.yearlyPrice.toFixed(2)}/mo</b>
-              <small>billed yearly</small>
-              <a className="compare-cta compare-cta--primary" href={growth.href}>
-                Get started
-              </a>
-            </div>
-            <div className="compare-header-col">
-              <span className="compare-plan-name">{customPlan.name}</span>
-              <span className="compare-price">Custom</span>
-              <small>tailored pricing</small>
-              <a className="compare-cta compare-cta--dark" href={customPlan.href}>
-                Book demo
-              </a>
-            </div>
-          </div>
-
-          {comparisonSections.map((section) => (
-            <div key={section.title} className="compare-section">
-              <div className="compare-section-title">{section.title}</div>
-              {section.rows.map((row: any) => (
-                <div key={row.label} className="compare-row">
-                  <span className="compare-label">{row.label}</span>
-                  <span className="compare-cell">{row.starter ? <Check size={14} className="compare-check-icon" /> : <X size={14} className="compare-cross-icon" />}</span>
-                  <span className="compare-cell featured">
-                    {row.growth ? <Check size={14} className="compare-check-icon" /> : <X size={14} className="compare-cross-icon" />}
-                  </span>
-                  <span className="compare-cell">{row.custom ? <Check size={14} className="compare-check-icon" /> : <X size={14} className="compare-cross-icon" />}</span>
+        <div className="detailed-overview-table">
+          {detailedCategories.map((group) => (
+            <div key={group.category} className="detailed-category-group">
+              {/* Category Header */}
+              <div className="detailed-category-header">
+                <div className="detailed-category-tag">
+                  {getCategoryIcon(group.category)}
+                  <span>{group.category}</span>
                 </div>
-              ))}
+              </div>
+
+              {/* Category Items */}
+              <div className="detailed-category-items">
+                {group.items.map((item) => (
+                  <div key={item.title} className="detailed-overview-row">
+                    <div className="detailed-col-category">
+                      <h4 className="detailed-category-title">{item.title}</h4>
+                    </div>
+                    <div className="detailed-col-content">
+                      <p className="detailed-text">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>

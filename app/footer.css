@@ -18,7 +18,7 @@
 .foot-cta {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #101c3a 0%, #08101f 100%);
+  background: linear-gradient(180deg, #375AC8 0%, #728FDD 100%);
   border-radius: 22px;
   margin: 28px 28px 0;
   padding: 92px 48px;
@@ -28,7 +28,7 @@
 .foot-cta-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(50, 100, 255, 0.4), transparent 60%);
+  background: radial-gradient(ellipse 58% 42% at 50% 36%, rgba(255, 255, 255, 0.18) 0%, transparent 64%);
   pointer-events: none;
 }
 
@@ -39,7 +39,7 @@
   width: 560px;
   height: 560px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(70, 120, 255, 0.16), transparent 65%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 65%);
   filter: blur(40px);
   pointer-events: none;
   animation: foot-glow-pulse 10s ease-in-out infinite;
@@ -54,12 +54,12 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.9;
+  opacity: 1;
   pointer-events: none;
 }
 
 .foot-cta-dotgrid .dot-grid__canvas {
-  opacity: 0.9;
+  opacity: 0.28;
 }
 
 .foot-cta-content {
@@ -71,11 +71,30 @@
 }
 
 .foot-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 11px;
   letter-spacing: 0.16em;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 6px 16px;
   margin-bottom: 22px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.foot-cta-eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ee89e;
+  box-shadow: 0 0 10px rgba(46, 232, 158, 0.6);
+  flex: none;
 }
 
 .foot-cta-title {
@@ -91,7 +110,7 @@
 .foot-cta-desc {
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 560px;
   margin: 0 0 38px;
 }

@@ -9,7 +9,7 @@ export default function FooterCTA() {
       <DotGrid
         dotSize={3}
         gap={28}
-        baseColor="#1e2e6b"
+        baseColor="#c2d6ff"
         activeColor="#3559C7"
         proximity={140}
         speedTrigger={80}

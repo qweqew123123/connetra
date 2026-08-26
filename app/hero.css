@@ -88,7 +88,21 @@ body {
 .nav.scrolled {
   height: 64px;
   background: #ffffff;
-  box-shadow: 0 14px 40px rgba(20, 40, 70, 0.1);
+}
+
+.chero.var2 .nav {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(20, 40, 70, 0.08);
+}
+
+.chero.var2 .nav.scrolled {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 12px 40px rgba(20, 40, 70, 0.12);
 }
 
 .nav .button {
@@ -2039,7 +2053,7 @@ body {
 .blog-detail h1,
 .fp-section:not([data-tone="dark"]) h2,
 .fp-section:not([data-tone="dark"]) .fp-section-copy h2,
-.fp-hero h1,
-.itg-hero h1 {
+.fp-hero:not(.var1):not(.var2) h1,
+.itg-hero:not(.var1):not(.var2) h1 {
   color: #09122A;
 }

@@ -48,6 +48,9 @@ export default function PricingCards({
             <p className="pricing-ref-desc">
               {starter.credits} {starter.creditsNote} — everything you need to explore your data ecosystem.
             </p>
+            <a className="pricing-ref-btn pricing-ref-btn--light" href={starter.href}>
+              Start free trial <ArrowRight size={15} />
+            </a>
             <ul className="pricing-ref-features">
               {starter.features.map((f) => (
                 <li key={f}>
@@ -58,15 +61,12 @@ export default function PricingCards({
                 </li>
               ))}
             </ul>
-            <a className="pricing-ref-btn pricing-ref-btn--light" href={starter.href}>
-              Start free trial <ArrowRight size={15} />
-            </a>
           </div>
 
-          {/* Growth — featured dark blue like image */}
+          {/* Growth — featured card */}
           <div className="pricing-ref-card pricing-ref-card--featured">
             <span className="pricing-ref-badge">
-              <Award size={14} />
+              <Award size={13} />
               Most Popular
             </span>
             <h3 className="pricing-ref-name">{growth.name}</h3>
@@ -78,19 +78,19 @@ export default function PricingCards({
             <p className="pricing-ref-desc">
               {growth.credits} {growth.creditsNote} — everything you need to scale from solo team to growing business.
             </p>
-            <ul className="pricing-ref-features pricing-ref-features--boxed">
+            <a className="pricing-ref-btn pricing-ref-btn--primary" href={growth.href}>
+              Start free trial <ArrowRight size={15} />
+            </a>
+            <ul className="pricing-ref-features">
               {growth.features.map((f) => (
                 <li key={f}>
-                  <span className="pricing-ref-check pricing-ref-check--solid">
+                  <span className="pricing-ref-check pricing-ref-check--featured">
                     <Check size={12} strokeWidth={3} />
                   </span>
                   <span>{f}</span>
                 </li>
               ))}
             </ul>
-            <a className="pricing-ref-btn pricing-ref-btn--solid" href={growth.href}>
-              Start free trial <ArrowRight size={15} />
-            </a>
           </div>
 
           {/* Custom / Enterprise */}
@@ -100,6 +100,9 @@ export default function PricingCards({
               <span className="pricing-ref-price-custom">Custom</span>
             </div>
             <p className="pricing-ref-desc">{customPlan.description}</p>
+            <a className="pricing-ref-btn pricing-ref-btn--light" href={customPlan.href}>
+              Contact Team <ArrowRight size={15} />
+            </a>
             <ul className="pricing-ref-features">
               {customPlan.features.map((f) => (
                 <li key={f}>
@@ -110,9 +113,6 @@ export default function PricingCards({
                 </li>
               ))}
             </ul>
-            <a className="pricing-ref-btn pricing-ref-btn--light" href={customPlan.href}>
-              Contact Team <ArrowRight size={15} />
-            </a>
             <span className="pricing-ref-note">{customPlan.note}</span>
           </div>
         </div>
