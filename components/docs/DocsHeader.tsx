@@ -68,6 +68,9 @@ export default function DocsHeader({ onSearchClick, onMenuClick }: DocsHeaderPro
             <Link href="/features" className="docs-header-link">
               Features
             </Link>
+            <Link href="/roadmap" className="docs-header-link">
+              Roadmap
+            </Link>
             <Link href="/integrations" className="docs-header-link">
               Integrations
             </Link>

@@ -1,37 +1,26 @@
 import type { Metadata } from "next";
-import DocsLayout from "../../../components/docs/DocsLayout";
-import DocsContent from "../../../components/docs/DocsContent";
+import DocsLayout from "@/components/docs/DocsLayout";
+import DocsContent from "@/components/docs/DocsContent";
+import DocsImageBox from "@/components/docs/DocsImageBox";
 
 export const metadata: Metadata = {
   title: "Introduction | Connetra Documentation",
-  description:
-    "Connetra is a powerful data catalog tool designed to provide organizations with complete visibility into their interconnected data ecosystem.",
-  keywords: [
-    "Data catalog",
-    "Data discovery",
-    "Data lineage",
-    "Data governance",
-    "Metadata management",
-    "Data management",
-    "data provenance",
-  ],
+  description: "Connetra documentation for Introduction.",
 };
 
-export default function DocsIntroPage() {
+export default function IntroductionPage() {
   return (
     <DocsLayout>
       <DocsContent
         title="Introduction"
         breadcrumbs={[
           { label: "Documentation", href: "/docs/intro" },
-          { label: "Introduction" },
+          { label: "Introduction" }
         ]}
-        nextPage={{
-          title: "Create an account",
-          href: "/docs/get-started/create-an-account",
-        }}
+        
+        nextPage={{ title: "Create an account", href: "/docs/get-started/create-an-account" }}
       >
-        <p className="docs-lead-paragraph">
+<p className="docs-lead-paragraph">
           Welcome to Connetra, the data catalog tool that empowers organizations
           with complete visibility into their interconnected ecosystem of data.
           With Connetra, you can quickly and easily search, explore data

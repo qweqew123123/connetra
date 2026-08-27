@@ -31,47 +31,46 @@ export default function Nav() {
           <img src="/Logo.svg" alt="Connetra logo" />
         </a>
         <nav className="nav-links" aria-label="Main navigation">
-<div className="nav-drop">
-             <a href="#platform">
-               Platform <ChevronDown size={14} />
-             </a>
-             <div className="nav-drop-menu">
-               <a href="/features">Features</a>
-               <a href="#">Roadmap</a>
-             </div>
-           </div>
-            <a
-              href="/integrations"
-              className={pathname === "/integrations" ? "active" : ""}
-            >
-              Integrations
+          <div className="nav-drop">
+            <a href="#platform" className={pathname === "/features" || pathname === "/roadmap" ? "active" : ""}>
+              Platform <ChevronDown size={14} />
             </a>
-            <a
-              href="/pricing"
-              className={pathname === "/pricing" ? "active" : ""}
-            >
-              Pricing
+            <div className="nav-drop-menu">
+              <a href="/features" className={pathname === "/features" ? "active" : ""}>Features</a>
+              <a href="/roadmap" className={pathname === "/roadmap" ? "active" : ""}>Roadmap</a>
+            </div>
+          </div>
+          <a
+            href="/integrations"
+            className={pathname === "/integrations" ? "active" : ""}
+          >
+            Integrations
+          </a>
+          <a
+            href="/pricing"
+            className={pathname === "/pricing" ? "active" : ""}
+          >
+            Pricing
+          </a>
+          <div className="nav-drop">
+            <a href="#resources" className={pathname.startsWith("/docs") || pathname === "/blog" ? "active" : ""}>
+              Resources <ChevronDown size={14} />
             </a>
-            <div className="nav-drop">
-             <a href="#resources">
-               Resources <ChevronDown size={14} />
-             </a>
-             <div className="nav-drop-menu">
-               <a
-                 href="/docs/intro"
-                 className={pathname.startsWith("/docs") ? "active" : ""}
-               >
-                 Documentation
-               </a>
-               <a
-                 href="/blog"
-                 className={pathname === "/blog" ? "active" : ""}
-               >
-                 Blog
-               </a>
-               <a href="#">Support</a>
-             </div>
-           </div>
+            <div className="nav-drop-menu">
+              <a
+                href="/docs/intro"
+                className={pathname.startsWith("/docs") ? "active" : ""}
+              >
+                Documentation
+              </a>
+              <a
+                href="/blog"
+                className={pathname === "/blog" ? "active" : ""}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
         </nav>
         <div className="nav-actions">
           <a className="login" href="#">
@@ -92,7 +91,18 @@ export default function Nav() {
       </div>
       {open && (
         <div className="mobile-panel">
-          <a href="#platform">Platform</a>
+          <a
+            href="/features"
+            className={pathname === "/features" ? "active" : ""}
+          >
+            Features
+          </a>
+          <a
+            href="/roadmap"
+            className={pathname === "/roadmap" ? "active" : ""}
+          >
+            Roadmap
+          </a>
           <a
             href="/integrations"
             className={pathname === "/integrations" ? "active" : ""}
