@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Image as ImageIcon, Copy, Check, ExternalLink } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react";
 
 interface DocsImageBoxProps {
   src: string;
@@ -17,53 +17,15 @@ export default function DocsImageBox({
   className = "",
 }: DocsImageBoxProps) {
   const [imageError, setImageError] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const displayCaption = caption || src.split("/").pop() || "Screenshot placeholder";
 
   // Normalize src for Next.js public directory
   const normalizedSrc = src.startsWith("/") ? src : `/${src}`;
 
-  const handleCopyPath = () => {
-    navigator.clipboard.writeText(src);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <figure className={`docs-image-box-wrapper ${className}`}>
       <div className="docs-image-box-frame">
-        {/* Mock Browser/Dashboard Header */}
-        <div className="docs-image-box-header">
-          <div className="docs-image-box-dots">
-            <span className="dot dot-red" />
-            <span className="dot dot-yellow" />
-            <span className="dot dot-green" />
-          </div>
-          <div className="docs-image-box-title" title={src}>
-            {displayCaption}
-          </div>
-          <button
-            type="button"
-            className="docs-image-box-copy-btn"
-            onClick={handleCopyPath}
-            title="Copy image source path"
-            aria-label="Copy image path"
-          >
-            {copied ? (
-              <>
-                <Check size={12} className="text-success" />
-                <span>Copied</span>
-              </>
-            ) : (
-              <>
-                <Copy size={12} />
-                <span>Copy path</span>
-              </>
-            )}
-          </button>
-        </div>
-
         {/* Content / Image Area */}
         <div className="docs-image-box-body">
           {!imageError ? (

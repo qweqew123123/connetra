@@ -25,42 +25,54 @@
   isolation: isolate;
   overflow: hidden;
   margin-top: -92px;
-  padding: 128px 0 48px;
+  padding: 164px 0 48px;
   text-align: center;
 }
 
-/* Variant switch controls */
+/* Variant switch controls - Centered & Compact */
 .roadmap-hero .variant-switch {
   position: absolute;
-  top: 108px;
-  right: 24px;
-  z-index: 10;
+  top: 104px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
   display: inline-flex;
+  width: fit-content;
+  max-width: max-content;
   gap: 4px;
   padding: 4px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(20, 40, 70, 0.1);
   border-radius: 999px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(20, 40, 70, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .roadmap-hero .variant-switch button {
-  padding: 4px 10px;
-  font-size: 11.5px;
-  font-weight: 600;
-  border-radius: 999px;
-  border: none;
+  appearance: none;
+  border: 0;
   background: transparent;
   color: #5b6b80;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  padding: 7px 16px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.roadmap-hero .variant-switch button:hover {
+  color: #111b47;
+  background: rgba(20, 40, 70, 0.06);
 }
 
 .roadmap-hero .variant-switch button.active {
-  background: #3559c7;
-  color: #ffffff;
-  box-shadow: 0 1px 4px rgba(53, 89, 199, 0.3);
+  background: #111b47;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(17, 27, 71, 0.22);
 }
 
 /* Hide inactive variant background */
