@@ -83,13 +83,13 @@ export default function DocsHeader({ onSearchClick, onMenuClick }: DocsHeaderPro
           </nav>
 
           <div className="docs-header-actions">
-            <a href="https://app.connetra.com/login" className="docs-header-login">
+            <Link href="/login" className="docs-header-login">
               Log in
-            </a>
-            <a href="#cta" className="docs-header-cta">
+            </Link>
+            <Link href="/createaccount" className="docs-header-cta">
               Sign up
               <ArrowRight size={13} aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

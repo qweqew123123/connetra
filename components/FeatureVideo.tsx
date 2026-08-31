@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
-import type { Feature } from "../data/features";
+import type { FeatureItem } from "../data/features";
 
 interface FeatureVideoProps {
-  feature: Feature;
+  feature: FeatureItem;
   active: boolean;
 }
 
@@ -41,7 +41,7 @@ export default function FeatureVideo({ feature, active }: FeatureVideoProps) {
             preload="none"
             onCanPlay={() => setState("ready")}
             onError={() => setState("error")}
-            aria-label={`Connetra ${feature.label.toLowerCase()} product demo`}
+            aria-label={`Connetra ${feature.tabLabel.toLowerCase()} product demo`}
           />
           {state !== "ready" && (
             <div className="video-placeholder">

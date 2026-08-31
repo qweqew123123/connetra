@@ -1,8 +1,7 @@
 /* --- AI Agent section --------------------------------------------------- */
 .ai-agent-section {
   padding: 96px 0 96px;
-  background: #f8fafd;
-  border-top: 1px solid #eef2f7;
+  background: transparent;
 }
 
 .ai-agent-container {

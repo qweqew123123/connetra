@@ -73,10 +73,10 @@ export default function Nav() {
           </div>
         </nav>
         <div className="nav-actions">
-          <a className="login" href="#">
+          <a className="login" href="/login">
             Log in
           </a>
-          <a className="button small" href="#cta">
+          <a className="button small" href="/createaccount">
             Sign up <ArrowRight size={14} />
           </a>
         </div>
@@ -127,7 +127,13 @@ export default function Nav() {
           >
             Blog
           </a>
-          <a className="button small" href="#cta">
+          <a
+            href="/login"
+            className={pathname === "/login" ? "active" : ""}
+          >
+            Log in
+          </a>
+          <a className="button small" href="/createaccount">
             Sign up <ArrowRight size={14} />
           </a>
         </div>

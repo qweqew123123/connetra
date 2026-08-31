@@ -32,7 +32,7 @@ export const pricingPlans: PricingPlan[] = [
       "Email support",
     ],
     cta: "Try 14 day free trial",
-    href: "https://app.connetra.com/createaccount",
+    href: "/createaccount",
     highlighted: true,
   },
   {
@@ -53,7 +53,7 @@ export const pricingPlans: PricingPlan[] = [
       "Email support",
     ],
     cta: "Try 14 day free trial",
-    href: "https://app.connetra.com/createaccount",
+    href: "/createaccount",
   },
 ];
 
@@ -67,9 +67,9 @@ export const customPlan = {
 };
 
 export const pricingOverviewPlans = [
-  { id: "basic", name: "Basic", price: "₹0/mo", sub: "try for free", cta: "Get started", href: "https://app.connetra.com/createaccount", highlighted: false },
-  { id: "starter", name: "Starter", price: "₹1,499/mo", sub: "billed yearly", cta: "Get started", href: "https://app.connetra.com/createaccount", highlighted: false },
-  { id: "creator", name: "Creator", price: "₹4,649/mo", sub: "billed yearly", cta: "Get started", href: "https://app.connetra.com/createaccount", highlighted: true },
+  { id: "basic", name: "Basic", price: "₹0/mo", sub: "try for free", cta: "Get started", href: "/createaccount", highlighted: false },
+  { id: "starter", name: "Starter", price: "₹1,499/mo", sub: "billed yearly", cta: "Get started", href: "/createaccount", highlighted: false },
+  { id: "creator", name: "Creator", price: "₹4,649/mo", sub: "billed yearly", cta: "Get started", href: "/createaccount", highlighted: true },
   { id: "enterprise", name: "Enterprise", price: "Custom", sub: "tailored pricing", cta: "Book demo", href: "mailto:contact@connetra.com?subject=Enterprise%20Plan", highlighted: false },
 ];
 

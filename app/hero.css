@@ -1809,10 +1809,9 @@ body {
   max-width: 660px;
   justify-self: end;
   aspect-ratio: 4 / 3;
-  border: 1px solid #e3e8ef;
+  border: none;
   border-radius: 16px;
   overflow: hidden;
-  background: linear-gradient(160deg, #eef3fa 0%, #dbe5f1 100%);
   box-shadow: 0 30px 60px rgba(16, 35, 64, 0.1);
 }
 

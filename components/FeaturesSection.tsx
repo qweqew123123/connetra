@@ -1,112 +1,135 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { features } from "../data/features";
-import FeatureContent from "./FeatureContent";
-import FeatureVideo from "./FeatureVideo";
+import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  Bell,
+  Layers,
+  SlidersHorizontal,
+} from "lucide-react";
+import { features, type FeatureItem } from "../data/features";
+import FeatureShowcaseCard from "./FeatureShowcaseCard";
 
-const backgrounds = ["#09122A", "#09122A", "#09122A"];
+const iconMap = {
+  SlidersHorizontal: SlidersHorizontal,
+  Bell: Bell,
+  Layers: Layers,
+};
+
+const AUTO_SWITCH_INTERVAL = 6500; // 6.5 seconds per feature
 
 export default function FeaturesSection() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [progress, setProgress] = useState(0);
-  const [active, setActive] = useState(0);
-  const [mode, setMode] = useState<"sticky" | "stacked">("sticky");
-  const [sectionInView, setSectionInView] = useState(false);
+  const [activeTabId, setActiveTabId] = useState<string>(features[0].id);
 
+  // Auto-switch to next feature when timer completes
   useEffect(() => {
-    const mqStack = window.matchMedia("(max-width: 1079px)");
-    const mqReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const check = () => setMode(mqStack.matches || mqReduced.matches ? "stacked" : "sticky");
-    check();
-    mqStack.addEventListener("change", check);
-    mqReduced.addEventListener("change", check);
-    return () => {
-      mqStack.removeEventListener("change", check);
-      mqReduced.removeEventListener("change", check);
-    };
-  }, []);
+    const timer = setTimeout(() => {
+      setActiveTabId((prevId) => {
+        const currentIndex = features.findIndex((f) => f.id === prevId);
+        const nextIndex = (currentIndex + 1) % features.length;
+        return features[nextIndex].id;
+      });
+    }, AUTO_SWITCH_INTERVAL);
 
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => setSectionInView(entry.isIntersecting),
-      { threshold: 0.18, rootMargin: "0px 0px -12% 0px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    return () => clearTimeout(timer);
+  }, [activeTabId]);
 
-  useEffect(() => {
-    const el = wrapRef.current;
-    if (!el || mode !== "sticky") return;
-    let raf = 0;
-    const update = () => {
-      const rect = el.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      const p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
-      setProgress(p);
-      setActive(Math.min(features.length - 1, Math.floor(p * features.length)));
-    };
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(update);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    update();
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, [mode]);
+  const activeFeature =
+    features.find((f) => f.id === activeTabId) || features[0];
 
   return (
-    <section ref={sectionRef} className="features-wrap" id="features">
-      {mode === "sticky" ? (
-        <div className="features-scroll" ref={wrapRef}>
-          <div
-            className="features-viewport"
-            data-active={active}
-            data-theme={sectionInView ? "dark" : "light"}
-            style={{
-              backgroundColor: sectionInView ? backgrounds[active] : "#ffffff",
-            }}
+    <section className="features-redesign-section" id="features" aria-label="Connetra Core Features">
+      <div className="features-container">
+        {/* Main Section Header */}
+        <div className="features-main-heading">
+          <div className="eyebrow">PLATFORM FEATURES</div>
+          <h2>Build your ultimate data experience</h2>
+        </div>
+
+        {/* Unified Master Card containing both sidebar list and right content + video */}
+        <div className="features-master-card">
+          {/* Left Column: Feature Navigation Sidebar */}
+          <aside className="features-sidebar-pane" aria-label="Features navigation">
+            <nav className="features-nav-list" role="tablist">
+              {features.map((item) => {
+                const IconComponent = iconMap[item.iconName] || SlidersHorizontal;
+                const isActive = item.id === activeTabId;
+
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    role="tab"
+                    id={`tab-${item.id}`}
+                    aria-selected={isActive}
+                    aria-controls={`panel-${item.id}`}
+                    className={`feature-nav-item ${isActive ? "active" : ""}`}
+                    onClick={() => setActiveTabId(item.id)}
+                  >
+                    <div className="nav-item-icon-wrap">
+                      <IconComponent size={18} className="nav-item-icon" />
+                    </div>
+                    <span className="nav-item-label">{item.tabLabel}</span>
+
+                    {/* Active Right-Pointing Pointer Arrow Callout */}
+                    {isActive && (
+                      <span className="active-arrow-indicator" aria-hidden="true">
+                        <svg
+                          width="12"
+                          height="20"
+                          viewBox="0 0 12 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0L10.5858 8.58579C11.3668 9.36684 11.3668 10.6332 10.5858 11.4142L0 20V0Z"
+                            fill="#ffffff"
+                          />
+                        </svg>
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </nav>
+          </aside>
+
+          {/* Right Column: Content & Video Showcase Area */}
+          <main
+            className="features-content-pane"
+            role="tabpanel"
+            id={`panel-${activeFeature.id}`}
+            aria-labelledby={`tab-${activeFeature.id}`}
           >
-            <div className="features-stage">
-              <div className="feature-slides">
-                {features.map((f, i) => (
-                  <FeatureContent
-                    key={f.id}
-                    feature={f}
-                    active={i === active}
-                    offset={i === active ? 0 : i > active ? 24 : -24}
-                  />
-                ))}
+            {/* Top Text Content Area */}
+            <div className="feature-text-block">
+              <h3 className="feature-headline">{activeFeature.heading}</h3>
+              <p className="feature-description-text">{activeFeature.description}</p>
+
+              <div className="feature-cta-row">
+                <a href={activeFeature.ctaLink} className="feature-cta-link">
+                  <span>{activeFeature.ctaText}</span>
+                  <ArrowRight size={15} className="cta-arrow" />
+                </a>
               </div>
-              <div className="feature-videos">
-                {features.map((f, i) => (
-                  <FeatureVideo key={f.id} feature={f} active={i === active} />
-                ))}
+
+              {/* Accent Progress Line: moves left to right, switches feature on complete and resets */}
+              <div className="feature-accent-line" aria-hidden="true">
+                <div
+                  key={activeTabId}
+                  className="accent-active-segment"
+                  style={{ animationDuration: `${AUTO_SWITCH_INTERVAL}ms` }}
+                />
               </div>
             </div>
-          </div>
+
+            {/* Bottom Visual Showcase (Video Window Frame) */}
+            <div className="feature-video-wrapper">
+              <FeatureShowcaseCard feature={activeFeature} />
+            </div>
+          </main>
         </div>
-      ) : (
-        <div className="features-stacked" data-theme={sectionInView ? "dark" : "light"}>
-          {features.map((f) => (
-            <article className="feature-stacked" key={f.id}>
-              <div className="feature-stacked-grid">
-                <FeatureContent feature={f} active stacked />
-                <FeatureVideo feature={f} active />
-              </div>
-            </article>
-          ))}
-        </div>
-      )}
+      </div>
     </section>
   );
 }

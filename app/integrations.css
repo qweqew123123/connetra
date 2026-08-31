@@ -171,9 +171,10 @@
   top: 0;
   background: linear-gradient(
     to bottom,
-    var(--integration-bg) 0%,
-    rgba(247, 249, 252, 0.85) 30%,
-    transparent 100%
+    #e6f0ff 0%,
+    rgba(230, 240, 255, 0.95) 25%,
+    rgba(230, 240, 255, 0.6) 60%,
+    rgba(230, 240, 255, 0) 100%
   );
 }
 
@@ -181,9 +182,10 @@
   bottom: 0;
   background: linear-gradient(
     to top,
-    var(--integration-bg) 0%,
-    rgba(247, 249, 252, 0.85) 30%,
-    transparent 100%
+    #e6f0ff 0%,
+    rgba(230, 240, 255, 0.95) 25%,
+    rgba(230, 240, 255, 0.6) 60%,
+    rgba(230, 240, 255, 0) 100%
   );
 }
 
