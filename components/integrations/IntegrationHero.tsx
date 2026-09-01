@@ -65,6 +65,7 @@ export default function IntegrationHero() {
             style={{ position: "absolute", inset: 0 }}
           />
           <div className="itg-hero-var2-new-glow" aria-hidden="true" />
+          <div className="itg-hero-var2-new-fade" aria-hidden="true" />
         </div>
       )}
 

@@ -3,13 +3,14 @@
    ========================================================================== */
 
 .itg-page {
-  background: #f8fafd;
+  background: #ffffff;
 }
 
 .itg-container {
-  width: min(1200px, 100%);
+  width: min(1240px, calc(100% - 80px));
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0;
 }
 
 /* --- Hero ----------------------------------------------------------------- */
@@ -18,7 +19,7 @@
   isolation: isolate;
   overflow: hidden;
   margin-top: -92px;
-  padding: 128px 0 48px;
+  padding: 128px 0 64px;
   text-align: center;
 }
 
@@ -34,11 +35,11 @@
 }
 
 .itg-hero.var1 {
-  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 100%);
+  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 82%, #ffffff 100%);
 }
 
 .itg-hero.var2 {
-  background: linear-gradient(180deg, #375AC8 0%, #728FDD 100%);
+  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
 }
 
 /* Var 1 (Homepage Hero Var 1 style) */
@@ -48,7 +49,7 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 100%);
+  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 82%, #ffffff 100%);
 }
 
 .itg-hero-var2-glow {
@@ -59,10 +60,7 @@
 }
 
 .itg-hero-var2-fade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(7, 10, 31, 0) 0%, rgba(7, 10, 31, 0) 96%, #f8fafd 96%);
-  pointer-events: none;
+  display: none;
 }
 
 .itg-hero-dotgrid,
@@ -70,6 +68,11 @@
   position: absolute;
   inset: 0;
   opacity: 1;
+}
+
+.itg-hero-var2-new-dotgrid {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
 }
 
 .itg-hero-dotgrid .dot-grid__canvas {
@@ -83,7 +86,7 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  background: linear-gradient(180deg, #375AC8 0%, #728FDD 100%);
+  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
 }
 
 .itg-hero-var2-new-glow {

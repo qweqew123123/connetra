@@ -1,23 +1,16 @@
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer/Footer";
 import FeaturesHero from "../../components/features/FeaturesHero";
-import FeatureSection from "../../components/features/FeatureSection";
+import FeaturesShowcase from "../../components/features/FeaturesShowcase";
 import IntegrationsSection from "../../components/IntegrationsSection";
-import { featuresPage } from "../../data/features-page";
 import "./features.css";
 
 export default function FeaturesPage() {
-  const variant = "var2" as const;
-
   return (
-    <main className={`fp-page ${variant}`}>
+    <main className="fp-page">
       <Nav />
       <FeaturesHero />
-      <div className="fp-features-cover-group">
-        {featuresPage.map((feature, i) => (
-          <FeatureSection key={feature.number} feature={feature} reverse={i === 1} variant={variant} index={i} />
-        ))}
-      </div>
+      <FeaturesShowcase />
       <IntegrationsSection />
       <Footer />
     </main>

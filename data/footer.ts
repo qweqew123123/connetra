@@ -12,27 +12,33 @@ export const footerGroups: FooterGroup[] = [
   {
     title: "Product",
     links: [
-      { label: "Platform", href: "#platform" },
-      { label: "Features", href: "#features" },
-      { label: "Integrations", href: "/integrations" },
-      { label: "Security", href: "#cta" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#" },
-      { label: "Contact", href: "#" },
-      { label: "Careers", href: "#" },
+      { label: "Features", href: "/features" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Roadmap", href: "/roadmap" },
+      { label: "Benefits", href: "/benefits" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Documentation", href: "/docs/intro" },
+      { label: "Integrations", href: "/integrations" },
       { label: "Blog", href: "/blog" },
-      { label: "Resources", href: "#" },
-      { label: "FAQs", href: "#" },
+      { label: "Documentation", href: "/docs/intro" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About us", href: "/aboutus" },
+      { label: "Contact", href: "/contactus" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy", href: "/privacy" },
+      { label: "Security", href: "/docs/privacy-security" },
+      { label: "Terms of use", href: "/privacy#terms" },
     ],
   },
 ];

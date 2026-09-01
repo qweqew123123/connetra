@@ -1,0 +1,461 @@
+/* ==========================================================================
+   Connetra — Contact Us Page Stylesheet
+   Loaded for /contactus route
+   ========================================================================== */
+
+.cnt-page {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.cnt-container {
+  width: min(1240px, calc(100% - 80px));
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* --- Hero Section --------------------------------------------------------- */
+.cnt-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: -92px;
+  padding: 140px 0 120px;
+  text-align: center;
+}
+
+.cnt-hero.var1 {
+  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 82%, #ffffff 100%);
+}
+
+.cnt-hero.var2 {
+  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
+}
+
+/* Var 1 Background */
+.cnt-hero-var1 {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 82%, #ffffff 100%);
+}
+
+.cnt-hero-var1 .cnt-hero-dotgrid .dot-grid__canvas {
+  opacity: 0.85;
+}
+
+.cnt-hero-var1-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 55% 42% at 50% 32%,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(191, 212, 255, 0.45) 36%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+/* Var 2 Background */
+.cnt-hero-var2 {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
+}
+
+.cnt-hero-var2 .cnt-hero-var2-dotgrid {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+}
+
+.cnt-hero-var2 .cnt-hero-var2-dotgrid .dot-grid__canvas {
+  opacity: 0.28;
+}
+
+.cnt-hero-var2-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 58% 42% at 50% 36%,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 64%
+  );
+  pointer-events: none;
+}
+
+/* Variant Switch Pill */
+.cnt-hero .variant-switch {
+  position: absolute;
+  top: 104px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(20, 40, 70, 0.1);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(20, 40, 70, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cnt-hero .variant-switch button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #5b6b80;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.cnt-hero .variant-switch button:hover {
+  color: #111b47;
+  background: rgba(20, 40, 70, 0.06);
+}
+
+.cnt-hero .variant-switch button.active {
+  background: #111b47;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(17, 27, 71, 0.22);
+}
+
+/* Hero Typography */
+.cnt-hero-inner {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Hero Eyebrow Pill Badge (Matching All Other Hero Sections) */
+.cnt-hero.var1 .cnt-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #09122A;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.cnt-hero.var1 .cnt-hero-eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ee89e;
+  box-shadow: 0 0 10px rgba(46, 232, 158, 0.6);
+  flex: none;
+}
+
+.cnt-hero.var2 .cnt-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.cnt-hero.var2 .cnt-hero-eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ee89e;
+  box-shadow: 0 0 10px rgba(46, 232, 158, 0.6);
+  flex: none;
+}
+
+.cnt-hero h1 {
+  font-family: var(--font-albert-sans), "Albert Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(38px, 5.2vw, 56px);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin: 0 0 20px;
+}
+
+.cnt-hero.var1 h1 {
+  color: #09122A;
+}
+
+.cnt-hero.var2 h1 {
+  color: #ffffff;
+}
+
+.cnt-hero-subtitle {
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+.cnt-hero.var1 .cnt-hero-subtitle {
+  color: #5b6b80;
+}
+
+.cnt-hero.var2 .cnt-hero-subtitle {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* --- Contact Section ----------------------------------------------------- */
+.cnt-section {
+  padding: 80px 0 110px;
+  background: #ffffff;
+}
+
+.cnt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Left Column — Visual & Info */
+.cnt-visual-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cnt-visual-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.08);
+}
+
+.cnt-image-frame {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  margin-bottom: 28px;
+}
+
+.cnt-stock-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.cnt-info-box {
+  padding-top: 20px;
+  border-top: 1px solid #f0f4fb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cnt-info-brand {
+  font-family: var(--font-albert-sans), "Albert Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #09122A;
+}
+
+.cnt-info-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3559C7;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+.cnt-info-email:hover {
+  color: #1f3ca6;
+  transform: translateX(2px);
+}
+
+/* Right Column — Form Card */
+.cnt-form-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.02);
+}
+
+.cnt-form-header h2 {
+  font-family: var(--font-albert-sans), "Albert Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #09122A;
+  margin: 0;
+}
+
+.cnt-form-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: #e2e8f0;
+  margin: 18px 0 26px;
+}
+
+.cnt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.cnt-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 550;
+}
+
+.cnt-alert.success {
+  background: #edfcf4;
+  border: 1px solid #b7f4d2;
+  color: #0e7a4a;
+}
+
+.cnt-alert.error {
+  background: #fff2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.cnt-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cnt-form-group label {
+  font-size: 14px;
+  font-weight: 650;
+  color: #09122A;
+}
+
+.cnt-form-group label .req {
+  color: #dc2626;
+}
+
+.cnt-form-group input,
+.cnt-form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #09122A;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cnt-form-group input::placeholder,
+.cnt-form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+.cnt-form-group input:focus,
+.cnt-form-group textarea:focus {
+  border-color: #3559C7;
+  box-shadow: 0 0 0 3.5px rgba(53, 89, 199, 0.15);
+}
+
+.cnt-form-group input:disabled,
+.cnt-form-group textarea:disabled {
+  background: #f8fafc;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.cnt-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 28px;
+  font-size: 15px;
+  font-weight: 650;
+  border-radius: 12px;
+  background: #3559C7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 18px rgba(53, 89, 199, 0.25);
+  margin-top: 6px;
+}
+
+.cnt-submit-btn:hover:not(:disabled) {
+  background: #2544a8;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(53, 89, 199, 0.32);
+}
+
+.cnt-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* --- Responsive Media Queries --------------------------------------------- */
+@media (max-width: 992px) {
+  .cnt-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cnt-hero {
+    padding: 120px 0 80px;
+  }
+
+  .cnt-visual-card,
+  .cnt-form-card {
+    padding: 24px;
+    border-radius: 18px;
+  }
+}

@@ -5,8 +5,8 @@ export default function FooterNavigation() {
   return (
     <div className="foot-nav">
       <div className="foot-brand-col">
-        <a className="foot-brand" href="#">
-          <img src="/Logo_Footer.svg" alt="Connetra logo" />
+        <a className="foot-brand" href="/">
+          <img src="/Logo.svg" alt="Connetra logo" />
         </a>
         <p className="foot-tagline">
           Connected data.

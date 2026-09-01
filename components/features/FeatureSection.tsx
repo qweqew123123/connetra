@@ -17,8 +17,6 @@ const visuals = {
 export default function FeatureSection({
   feature,
   reverse,
-  variant = "var1",
-  index = 0,
 }: {
   feature: FeaturesPageFeature;
   reverse?: boolean;
@@ -46,18 +44,12 @@ export default function FeatureSection({
 
   const Visual = visuals[feature.visual];
 
-  const isCover = variant === "var2" && index < 2;
-
   return (
     <section
       ref={ref}
       className={`fp-section ${reverse ? "fp-section-reverse" : ""} ${
         inView ? "in" : ""
-      } ${isCover ? "fp-section--cover" : ""} ${
-        variant === "var2" && index === 2 ? "fp-section--last" : ""
       }`}
-      data-tone={feature.number === "02" ? "dark" : "light"}
-      style={variant === "var2" ? { zIndex: index + 1 } : undefined}
     >
       <div className="fp-container fp-section-grid">
         <div className="fp-section-copy">

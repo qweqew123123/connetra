@@ -1,8 +1,11 @@
 /* --- Integrations section: living data wall -------------------------------- */
-.integrations {
-  --integration-bg: #e6f0ff;
-  background: #e6f0ff;
+.integrations,
+.section.integrations {
+  --integration-bg: transparent;
+  background: transparent;
   display: block;
+  border-bottom: none !important;
+  padding: 28px 0 36px;
 }
 
 .integrations-grid {
@@ -10,7 +13,8 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
   gap: 64px;
   align-items: center;
-  width: min(1280px, 100%);
+  width: min(1240px, calc(100% - 80px));
+  max-width: 1240px;
   margin: 0 auto;
 }
 
@@ -171,10 +175,10 @@
   top: 0;
   background: linear-gradient(
     to bottom,
-    #e6f0ff 0%,
-    rgba(230, 240, 255, 0.95) 25%,
-    rgba(230, 240, 255, 0.6) 60%,
-    rgba(230, 240, 255, 0) 100%
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.95) 25%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 
@@ -182,10 +186,10 @@
   bottom: 0;
   background: linear-gradient(
     to top,
-    #e6f0ff 0%,
-    rgba(230, 240, 255, 0.95) 25%,
-    rgba(230, 240, 255, 0.6) 60%,
-    rgba(230, 240, 255, 0) 100%
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.95) 25%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 
@@ -207,8 +211,14 @@
 
 /* --- Mobile ----------------------------------------------------------------- */
 @media (max-width: 768px) {
-  .integrations {
-    padding: 88px 24px;
+  .integrations,
+  .section.integrations {
+    padding: 24px 0;
+  }
+
+  .integrations-grid {
+    width: calc(100% - 32px);
+    margin: 0 auto;
   }
 
   .integration-wall {
