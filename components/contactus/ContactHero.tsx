@@ -5,13 +5,14 @@ import { contactUsData } from "../../data/contactus";
 import DotGrid from "../DotGrid/DotGrid";
 
 export default function ContactHero() {
-  const [variant, setVariant] = useState<"var1" | "var2">("var1");
+  const [variant, setVariant] = useState<"var1" | "var2">("var2");
 
   return (
     <section
       className={`cnt-hero ${variant}`}
       aria-label="Contact Us hero section"
     >
+      {/* 
       <div
         className="variant-switch"
         role="group"
@@ -32,6 +33,7 @@ export default function ContactHero() {
           Var 2
         </button>
       </div>
+      */}
 
       {variant === "var1" ? (
         <div className="cnt-hero-var1" aria-hidden="true">

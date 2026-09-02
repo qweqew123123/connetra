@@ -4,10 +4,11 @@ import { useState } from "react";
 import DotGrid from "../DotGrid/DotGrid";
 
 export default function PricingHero() {
-  const [variant, setVariant] = useState<"var1" | "var2">("var1");
+  const [variant, setVariant] = useState<"var1" | "var2">("var2");
 
   return (
     <section className={`pricing-hero ${variant}`} aria-label="Connetra pricing hero">
+      {/* 
       <div className="variant-switch" role="group" aria-label="Hero background variant">
         <button
           type="button"
@@ -24,6 +25,7 @@ export default function PricingHero() {
           Var 2
         </button>
       </div>
+      */}
 
       {variant === "var1" ? (
         <div className="pricing-hero-var2" aria-hidden="true">

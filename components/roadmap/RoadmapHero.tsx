@@ -4,10 +4,11 @@ import { useState } from "react";
 import DotGrid from "../DotGrid/DotGrid";
 
 export default function RoadmapHero() {
-  const [variant, setVariant] = useState<"var1" | "var2">("var1");
+  const [variant, setVariant] = useState<"var1" | "var2">("var2");
 
   return (
     <section className={`roadmap-hero ${variant}`} aria-label="Connetra roadmap hero">
+      {/* 
       <div className="variant-switch" role="group" aria-label="Hero background variant">
         <button
           type="button"
@@ -24,6 +25,7 @@ export default function RoadmapHero() {
           Var 2
         </button>
       </div>
+      */}
 
       {variant === "var1" ? (
         <div className="roadmap-hero-var2" aria-hidden="true">

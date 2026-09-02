@@ -9,7 +9,7 @@ export default function AboutHero({
 }: {
   onVariantChange?: (v: "var1" | "var2") => void;
 }) {
-  const [variant, setVariant] = useState<"var1" | "var2">("var1");
+  const [variant, setVariant] = useState<"var1" | "var2">("var2");
 
   const handleSelect = (v: "var1" | "var2") => {
     setVariant(v);
@@ -18,6 +18,7 @@ export default function AboutHero({
 
   return (
     <section className={`abt-hero ${variant}`} aria-label="About Connetra Hero">
+      {/* 
       <div className="variant-switch" role="group" aria-label="Hero background variant">
         <button
           type="button"
@@ -34,6 +35,7 @@ export default function AboutHero({
           Var 2
         </button>
       </div>
+      */}
 
       {variant === "var1" ? (
         <div className="abt-hero-var1" aria-hidden="true">

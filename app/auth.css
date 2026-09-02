@@ -21,6 +21,32 @@
   padding-bottom: 60px;
 }
 
+/* Background DotGrid */
+.auth-dotgrid-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+}
+
+.auth-dotgrid-wrap .auth-dotgrid .dot-grid__canvas {
+  opacity: 0.35;
+}
+
+.auth-dotgrid-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 58% 42% at 50% 36%,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 64%
+  );
+  pointer-events: none;
+}
+
 /* --- Header & Branding --------------------------------------------------- */
 .auth-header {
   position: relative;
@@ -36,6 +62,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
   text-decoration: none;
 }
@@ -49,6 +76,7 @@
   height: 38px;
   width: auto;
   display: block;
+  cursor: pointer;
   filter: drop-shadow(0 2px 8px rgba(9, 18, 42, 0.15));
 }
 

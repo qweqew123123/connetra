@@ -2059,3 +2059,16 @@ body {
 .itg-hero:not(.var1):not(.var2) h1 {
   color: #09122A;
 }
+
+/* --- AI Agent & Integrations Homepage Section Spacing ------------------ */
+#ai-agent.ai-agent-section {
+  padding-top: 80px !important;
+  padding-bottom: 70px !important;
+  margin-bottom: 0 !important;
+}
+
+#integrations.section.integrations {
+  display: block !important;
+  margin-top: 0 !important;
+  padding-top: 60px !important;
+}

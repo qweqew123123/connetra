@@ -4,10 +4,11 @@ import { useState } from "react";
 import DotGrid from "../DotGrid/DotGrid";
 
 export default function BlogHero() {
-  const [variant, setVariant] = useState<"var1" | "var2">("var1");
+  const [variant, setVariant] = useState<"var1" | "var2">("var2");
 
   return (
     <section className={`blog-hero ${variant}`} aria-label="Connetra blog hero">
+      {/* 
       <div className="variant-switch" role="group" aria-label="Hero background variant">
         <button
           type="button"
@@ -24,6 +25,7 @@ export default function BlogHero() {
           Var 2
         </button>
       </div>
+      */}
 
       {variant === "var1" ? (
         <div className="blog-hero-var2" aria-hidden="true">

@@ -1,11 +1,13 @@
 /* --- Integrations section: living data wall -------------------------------- */
 .integrations,
-.section.integrations {
+.section.integrations,
+#integrations {
   --integration-bg: transparent;
   background: transparent;
-  display: block;
+  display: block !important;
   border-bottom: none !important;
-  padding: 28px 0 36px;
+  padding: 60px 0 80px !important;
+  margin-top: 0 !important;
 }
 
 .integrations-grid {
