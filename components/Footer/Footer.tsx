@@ -1,3 +1,5 @@
+"use client";
+
 import FooterBottom from "./FooterBottom";
 import FooterCTA from "./FooterCTA";
 import FooterNavigation from "./FooterNavigation";

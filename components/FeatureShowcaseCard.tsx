@@ -12,9 +12,15 @@ import { features, type FeatureItem } from "../data/features";
 
 interface FeatureShowcaseCardProps {
   feature: FeatureItem;
+  onVideoEnded?: () => void;
+  onDurationChange?: (duration: number) => void;
 }
 
-export default function FeatureShowcaseCard({ feature }: FeatureShowcaseCardProps) {
+export default function FeatureShowcaseCard({
+  feature,
+  onVideoEnded,
+  onDurationChange,
+}: FeatureShowcaseCardProps) {
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -28,12 +34,15 @@ export default function FeatureShowcaseCard({ feature }: FeatureShowcaseCardProp
         if (f.id === feature.id) {
           v.currentTime = 0;
           v.play().catch(() => {});
+          if (v.duration && v.duration > 0 && onDurationChange) {
+            onDurationChange(v.duration);
+          }
         } else {
           v.pause();
         }
       }
     });
-  }, [feature.id]);
+  }, [feature.id, onDurationChange]);
 
   const togglePlay = () => {
     const activeVideo = videoRefs.current[feature.id];
@@ -71,9 +80,19 @@ export default function FeatureShowcaseCard({ feature }: FeatureShowcaseCardProp
                 }}
                 src={f.video}
                 muted={isMuted}
-                loop
                 playsInline
                 preload="auto"
+                onLoadedMetadata={(e) => {
+                  if (f.id === feature.id && onDurationChange) {
+                    const d = e.currentTarget.duration;
+                    if (d > 0) onDurationChange(d);
+                  }
+                }}
+                onEnded={() => {
+                  if (isActive && onVideoEnded) {
+                    onVideoEnded();
+                  }
+                }}
                 className={`feature-video-screen ${isActive ? "active" : "inactive"}`}
                 style={{ display: isActive ? "block" : "none" }}
                 aria-label={`Connetra ${f.tabLabel} product demonstration video`}

@@ -20,19 +20,19 @@ const AUTO_SWITCH_INTERVAL = 6500; // 6.5 seconds per feature
 
 export default function FeaturesSection() {
   const [activeTabId, setActiveTabId] = useState<string>(features[0].id);
+  const [videoDuration, setVideoDuration] = useState<number>(6.5);
 
-  // Auto-switch to next feature when timer completes
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setActiveTabId((prevId) => {
-        const currentIndex = features.findIndex((f) => f.id === prevId);
-        const nextIndex = (currentIndex + 1) % features.length;
-        return features[nextIndex].id;
-      });
-    }, AUTO_SWITCH_INTERVAL);
+  const handleNextFeature = () => {
+    setActiveTabId((prevId) => {
+      const currentIndex = features.findIndex((f) => f.id === prevId);
+      const nextIndex = (currentIndex + 1) % features.length;
+      return features[nextIndex].id;
+    });
+  };
 
-    return () => clearTimeout(timer);
-  }, [activeTabId]);
+  const handleTabClick = (id: string) => {
+    setActiveTabId(id);
+  };
 
   const activeFeature =
     features.find((f) => f.id === activeTabId) || features[0];
@@ -64,7 +64,7 @@ export default function FeaturesSection() {
                     aria-selected={isActive}
                     aria-controls={`panel-${item.id}`}
                     className={`feature-nav-item ${isActive ? "active" : ""}`}
-                    onClick={() => setActiveTabId(item.id)}
+                    onClick={() => handleTabClick(item.id)}
                   >
                     <div className="nav-item-icon-wrap">
                       <IconComponent size={18} className="nav-item-icon" />
@@ -113,19 +113,23 @@ export default function FeaturesSection() {
                 </a>
               </div>
 
-              {/* Accent Progress Line: moves left to right, switches feature on complete and resets */}
+              {/* Accent Progress Line: rising line fills smoothly for every video over its exact duration */}
               <div className="feature-accent-line" aria-hidden="true">
                 <div
-                  key={activeTabId}
+                  key={`${activeTabId}-${videoDuration}`}
                   className="accent-active-segment"
-                  style={{ animationDuration: `${AUTO_SWITCH_INTERVAL}ms` }}
+                  style={{ animationDuration: `${videoDuration}s` }}
                 />
               </div>
             </div>
 
             {/* Bottom Visual Showcase (Video Window Frame) */}
             <div className="feature-video-wrapper">
-              <FeatureShowcaseCard feature={activeFeature} />
+              <FeatureShowcaseCard
+                feature={activeFeature}
+                onVideoEnded={handleNextFeature}
+                onDurationChange={(d) => setVideoDuration(d)}
+              />
             </div>
           </main>
         </div>

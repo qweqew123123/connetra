@@ -1,3 +1,5 @@
+"use client";
+
 import { footerGroups } from "../../data/footer";
 import FooterSocials from "./FooterSocials";
 
@@ -19,7 +21,11 @@ export default function FooterNavigation() {
           <div className="foot-group" key={g.title}>
             <h4>{g.title}</h4>
             {g.links.map((l) => (
-              <a key={l.label} href={l.href}>
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={l.href === "#" ? (e) => e.preventDefault() : undefined}
+              >
                 {l.label}
               </a>
             ))}

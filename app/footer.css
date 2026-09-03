@@ -264,6 +264,26 @@
     padding: 72px 40px 60px;
   }
 
+  .foot-brand-col {
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  .foot-brand {
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .foot-brand img {
+    margin: 0 auto !important;
+  }
+
+  .foot-tagline {
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
   .foot-groups {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 36px 24px;

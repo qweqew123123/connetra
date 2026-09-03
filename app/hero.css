@@ -196,47 +196,191 @@ body {
   height: 10px;
 }
 
-/* --- Mobile panel --------------------------------------------------------- */
-.mobile-panel {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  right: 0;
+/* --- Full-Page Mobile Navigation Overlay ---------------------------------- */
+.mobile-full-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  animation: slideFromTop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e7ebf1;
+  background: #ffffff;
+}
+
+.mobile-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #111b47;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-close-btn:hover {
+  background: #f1f5f9;
+  color: #3559C7;
+}
+
+.mobile-overlay-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 20px 48px;
+  flex: 1;
+}
+
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111b47;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-parent:hover,
+.mobile-nav-parent.active {
+  background: #f4f8fe;
+  color: #3559C7;
+}
+
+.mobile-nav-parent .chevron {
+  transition: transform 0.25s ease;
+}
+
+.mobile-nav-parent.open .chevron {
+  transform: rotate(180deg);
+}
+
+.mobile-nav-sublinks {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 12px;
-  background: #fff;
-  border: 1px solid #e7ebf1;
-  border-radius: 16px;
-  box-shadow: 0 24px 50px rgba(20, 40, 70, 0.14);
+  padding: 4px 0 4px 16px;
+  margin-top: 2px;
+  border-left: 2px solid #e2e8f0;
+  margin-left: 16px;
 }
 
-.mobile-panel a {
+.mobile-nav-sublink {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
+  padding: 11px 16px;
   border-radius: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #253044;
+  font-size: 15.5px;
+  font-weight: 550;
+  color: #5b6b80;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.mobile-panel a:hover {
-  background: #f5f7fb;
+.mobile-nav-sublink:hover,
+.mobile-nav-sublink.active {
+  background: #edf4ff;
   color: #3559C7;
 }
 
-.mobile-panel a.active {
-  background: #f0f4ff;
-  color: #3559C7;
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 17px;
   font-weight: 600;
+  color: #111b47;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.mobile-panel .button {
-  margin-top: 6px;
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: #f4f8fe;
+  color: #3559C7;
+}
+
+.mobile-actions-group {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #edf2f8;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-actions-group .login-link {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111b47;
+  border: 1px solid #dce4f0;
+  background: #f8fafc;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-actions-group .login-link:hover {
+  background: #edf4ff;
+  color: #3559C7;
+}
+
+.mobile-actions-group .signup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 650;
+  color: #ffffff !important;
+  background: #3559C7 !important;
+  box-shadow: 0 8px 22px rgba(53, 89, 199, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-actions-group .signup-btn:hover {
+  background: #2347b5 !important;
+  transform: translateY(-1px);
 }
 
 .button {
@@ -2003,7 +2147,7 @@ body {
   }
 
   .chero-inner { padding: 0 20px; }
-  .chero-grid { padding: 64px 0 32px; }
+  .chero-grid { padding: 115px 0 32px; }
 
   .chero .eyebrow { margin-bottom: 20px; }
   .chero-h1 { font-size: clamp(40px, 11vw, 48px); line-height: 1.04; }
@@ -2024,8 +2168,24 @@ body {
   .chero-trust-items span { font-size: 10px; }
 
   .chero-showcase { padding: 24px 20px 64px; }
-  .showcase-card { border-radius: 18px; }
-  .showcase-image { height: 300px; }
+  .showcase-card {
+    border-radius: 18px;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  .showcase-visual {
+    height: auto !important;
+  }
+  .showcase-image {
+    height: auto !important;
+    min-height: auto !important;
+    aspect-ratio: auto !important;
+  }
+  .showcase-image img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
 
   .showcase-tabs {
     overflow-x: auto;
@@ -2043,6 +2203,54 @@ body {
   }
 
   .showcase-view { padding: 16px 14px 20px; }
+}
+
+@media (max-width: 900px) {
+  .section.intro .section-copy {
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .section.intro .section-copy p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .section.intro .mini-points {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .section.intro .intro-visual {
+    margin: 0 auto !important;
+  }
+
+  #integrations.section.integrations .integration-copy {
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  #integrations.section.integrations .integration-copy p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #integrations.section.integrations .integration-copy .button {
+    margin: 0 auto !important;
+  }
+
+  #integrations.section.integrations .integration-wall {
+    margin: 0 auto !important;
+  }
 }
 
 /* --- Light-bg heading color #09122A (overrides #111b47) ------------------ */

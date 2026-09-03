@@ -281,17 +281,14 @@ export default function SignUpForm() {
             </>
           )}
         </button>
-      </form>
 
-      {/* Secondary Action */}
-      <div className="auth-card-footer">
-        <p className="auth-switch-text">
-          Already have an account?
+        <p className="auth-team-text">
+          Already have a team?{" "}
           <Link href="/login" className="auth-switch-link">
-            Sign in
+            Log in
           </Link>
         </p>
-      </div>
+      </form>
     </div>
   );
 }

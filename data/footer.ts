@@ -36,9 +36,9 @@ export const footerGroups: FooterGroup[] = [
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Security", href: "/docs/privacy-security" },
-      { label: "Terms of use", href: "/privacy#terms" },
+      { label: "Privacy", href: "#" },
+      { label: "Security", href: "#" },
+      { label: "Terms of use", href: "#" },
     ],
   },
 ];
