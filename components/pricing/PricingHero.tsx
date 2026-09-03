@@ -65,6 +65,7 @@ export default function PricingHero() {
             style={{ position: "absolute", inset: 0 }}
           />
           <div className="pricing-hero-var2-new-glow" aria-hidden="true" />
+          <div className="pricing-hero-var2-new-fade" aria-hidden="true" />
         </div>
       )}
 

@@ -47,6 +47,7 @@ const DotGrid = ({
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dotsRef = useRef<any[]>([]);
+  const dimensionsRef = useRef({ width: 0, height: 0, dpr: 1 });
   const pointerRef = useRef({
     x: 0,
     y: 0,
@@ -61,31 +62,25 @@ const DotGrid = ({
   const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
   const activeRgb = useMemo(() => hexToRgb(activeColor), [activeColor]);
 
-  const circlePath = useMemo(() => {
-    if (typeof window === 'undefined' || !window.Path2D) return null;
-    const p = new window.Path2D();
-    p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
-    return p;
-  }, [dotSize]);
-
   const buildGrid = useCallback(() => {
     const wrap = wrapperRef.current;
     const canvas = canvasRef.current;
     if (!wrap || !canvas) return;
 
     const { width, height } = wrap.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
+    if (width <= 0 || height <= 0) return;
 
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
+    const dpr = window.devicePixelRatio || 1;
+    dimensionsRef.current = { width, height, dpr };
+
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
-    const ctx = canvas.getContext('2d');
-    if (ctx) ctx.scale(dpr, dpr);
 
-    const cols = Math.floor((width + gap) / (dotSize + gap));
-    const rows = Math.floor((height + gap) / (dotSize + gap));
     const cell = dotSize + gap;
+    const cols = Math.max(1, Math.floor((width + gap) / cell));
+    const rows = Math.max(1, Math.floor((height + gap) / cell));
 
     const gridW = cell * cols - gap;
     const gridH = cell * rows - gap;
@@ -108,21 +103,25 @@ const DotGrid = ({
   }, [dotSize, gap]);
 
   useEffect(() => {
-    if (!circlePath) return;
-
     let rafId: number;
     const proxSq = proximity * proximity;
+    const radius = dotSize / 2;
 
     const draw = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const { width, height, dpr } = dimensionsRef.current;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
 
       const { x: px, y: py } = pointerRef.current;
+      const dots = dotsRef.current;
 
-      for (const dot of dotsRef.current) {
+      for (let i = 0; i < dots.length; i++) {
+        const dot = dots[i];
         const ox = dot.cx + dot.xOffset;
         const oy = dot.cy + dot.yOffset;
         const dx = dot.cx - px;
@@ -139,11 +138,10 @@ const DotGrid = ({
           style = `rgb(${r},${g},${b})`;
         }
 
-        ctx.save();
-        ctx.translate(ox, oy);
+        ctx.beginPath();
+        ctx.arc(ox, oy, radius, 0, Math.PI * 2);
         ctx.fillStyle = style;
-        ctx.fill(circlePath);
-        ctx.restore();
+        ctx.fill();
       }
 
       rafId = requestAnimationFrame(draw);
@@ -151,7 +149,7 @@ const DotGrid = ({
 
     draw();
     return () => cancelAnimationFrame(rafId);
-  }, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
+  }, [proximity, baseColor, activeRgb, baseRgb, dotSize]);
 
   useEffect(() => {
     buildGrid();
@@ -191,7 +189,8 @@ const DotGrid = ({
       pr.vy = vy;
       pr.speed = speed;
 
-      const rect = canvasRef.current!.getBoundingClientRect();
+      if (!canvasRef.current) return;
+      const rect = canvasRef.current.getBoundingClientRect();
       pr.x = e.clientX - rect.left;
       pr.y = e.clientY - rect.top;
 
@@ -219,7 +218,8 @@ const DotGrid = ({
     };
 
     const onClick = (e: MouseEvent) => {
-      const rect = canvasRef.current!.getBoundingClientRect();
+      if (!canvasRef.current) return;
+      const rect = canvasRef.current.getBoundingClientRect();
       const cx = e.clientX - rect.left;
       const cy = e.clientY - rect.top;
       for (const dot of dotsRef.current) {

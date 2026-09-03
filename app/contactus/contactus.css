@@ -21,7 +21,8 @@
   isolation: isolate;
   overflow: hidden;
   margin-top: -92px;
-  padding: 140px 0 120px;
+  padding: 175px 0 160px;
+  min-height: 520px;
   text-align: center;
 }
 
@@ -30,7 +31,7 @@
 }
 
 .cnt-hero.var2 {
-  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
+  background: transparent;
 }
 
 /* Var 1 Background */
@@ -47,16 +48,11 @@
   opacity: 0.85;
 }
 
-.cnt-hero-var1-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 55% 42% at 50% 32%,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(191, 212, 255, 0.45) 36%,
-    transparent 68%
-  );
-  pointer-events: none;
+.cnt-hero-var1-glow,
+.cnt-hero-var1-fade,
+.cnt-hero-var2-glow,
+.cnt-hero-var2-fade {
+  display: none !important;
 }
 
 /* Var 2 Background */
@@ -66,27 +62,29 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
+  background: linear-gradient(
+    180deg,
+    #1e47c6 0%,
+    #234ac9 25%,
+    #3559c7 40%,
+    rgba(53, 89, 199, 0.90) 50%,
+    rgba(53, 89, 199, 0.75) 60%,
+    rgba(53, 89, 199, 0.55) 70%,
+    rgba(53, 89, 199, 0.35) 78%,
+    rgba(53, 89, 199, 0.18) 85%,
+    rgba(53, 89, 199, 0.08) 91%,
+    rgba(53, 89, 199, 0.02) 96%,
+    transparent 100%
+  );
 }
 
 .cnt-hero-var2 .cnt-hero-var2-dotgrid {
-  mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+  mask-image: linear-gradient(to bottom, black 38%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.15) 86%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, black 38%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.15) 86%, transparent 98%);
 }
 
 .cnt-hero-var2 .cnt-hero-var2-dotgrid .dot-grid__canvas {
   opacity: 0.28;
-}
-
-.cnt-hero-var2-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 58% 42% at 50% 36%,
-    rgba(255, 255, 255, 0.18) 0%,
-    transparent 64%
-  );
-  pointer-events: none;
 }
 
 /* Variant Switch Pill */
@@ -245,24 +243,25 @@
 /* Left Column — Visual & Info */
 .cnt-visual-card {
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.09);
+  border: 1px solid rgba(20, 40, 80, 0.16);
   border-radius: 24px;
   padding: 36px;
-  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .cnt-visual-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.08);
+  border-color: rgba(53, 89, 199, 0.4);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.16);
 }
 
 .cnt-image-frame {
   width: 100%;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(20, 40, 80, 0.14);
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
   margin-bottom: 28px;
 }
 
@@ -275,7 +274,7 @@
 
 .cnt-info-box {
   padding-top: 20px;
-  border-top: 1px solid #f0f4fb;
+  border-top: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -308,10 +307,16 @@
 /* Right Column — Form Card */
 .cnt-form-card {
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.09);
+  border: 1px solid rgba(20, 40, 80, 0.16);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.02);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cnt-form-card:hover {
+  border-color: rgba(53, 89, 199, 0.4);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.16);
 }
 
 .cnt-form-header h2 {

@@ -19,7 +19,7 @@
   isolation: isolate;
   overflow: hidden;
   margin-top: -92px;
-  padding: 128px 0 64px;
+  padding: 154px 0 60px;
   text-align: center;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .itg-hero.var2 {
-  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
+  background: transparent;
 }
 
 /* Var 1 (Homepage Hero Var 1 style) */
@@ -52,15 +52,11 @@
   background: linear-gradient(180deg, #DCE9FF 0%, #BFD4FF 50%, #EEF4FF 82%, #ffffff 100%);
 }
 
-.itg-hero-var2-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 55% 42% at 50% 32%, rgba(255, 255, 255, 0.85) 0%, rgba(191, 212, 255, 0.45) 36%, transparent 68%);
-  pointer-events: none;
-}
-
-.itg-hero-var2-fade {
-  display: none;
+.itg-hero-var2-glow,
+.itg-hero-var2-fade,
+.itg-hero-var2-new-glow,
+.itg-hero-var2-new-fade {
+  display: none !important;
 }
 
 .itg-hero-dotgrid,
@@ -71,8 +67,8 @@
 }
 
 .itg-hero-var2-new-dotgrid {
-  mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+  mask-image: linear-gradient(to bottom, black 38%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.15) 86%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, black 38%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.15) 86%, transparent 98%);
 }
 
 .itg-hero-dotgrid .dot-grid__canvas {
@@ -86,18 +82,20 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
-}
-
-.itg-hero-var2-new-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 58% 42% at 50% 36%, rgba(255, 255, 255, 0.18) 0%, transparent 64%);
-  pointer-events: none;
-}
-
-.itg-hero-var2-new-fade {
-  display: none;
+  background: linear-gradient(
+    180deg,
+    #1e47c6 0%,
+    #234ac9 25%,
+    #3559c7 40%,
+    rgba(53, 89, 199, 0.90) 50%,
+    rgba(53, 89, 199, 0.75) 60%,
+    rgba(53, 89, 199, 0.55) 70%,
+    rgba(53, 89, 199, 0.35) 78%,
+    rgba(53, 89, 199, 0.18) 85%,
+    rgba(53, 89, 199, 0.08) 91%,
+    rgba(53, 89, 199, 0.02) 96%,
+    transparent 100%
+  );
 }
 
 .itg-hero-var2-new-dotgrid .dot-grid__canvas {
@@ -488,7 +486,7 @@
 }
 
 .itg-pill {
-  border: 1px solid #e4e8ee;
+  border: 1px solid rgba(20, 40, 80, 0.12);
   background: #fff;
   color: #4b5563;
   font: inherit;
@@ -498,19 +496,21 @@
   border-radius: 999px;
   cursor: pointer;
   white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(20, 40, 80, 0.03);
   transition: all 0.2s ease;
 }
 
 .itg-pill:hover {
-  border-color: rgba(23, 107, 255, 0.4);
+  border-color: rgba(53, 89, 199, 0.35);
   color: #3559C7;
+  box-shadow: 0 4px 12px rgba(53, 89, 199, 0.08);
 }
 
 .itg-pill.active {
   background: #3559C7;
   border-color: #3559C7;
   color: #fff;
-  box-shadow: 0 6px 16px rgba(23, 107, 255, 0.25);
+  box-shadow: 0 6px 16px rgba(53, 89, 199, 0.25);
 }
 
 .itg-pill-count {
@@ -541,15 +541,16 @@
   flex-direction: column;
   padding: 26px;
   background: #fff;
-  border: 1px solid rgba(20, 40, 80, 0.1);
+  border: 1px solid rgba(20, 40, 80, 0.12);
   border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(20, 40, 80, 0.04);
   transition: transform 0.22s ease-out, border-color 0.22s ease-out,
     box-shadow 0.22s ease-out;
 }
 
 .itg-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(23, 107, 255, 0.35);
+  border-color: rgba(53, 89, 199, 0.35);
   box-shadow: 0 16px 40px rgba(30, 50, 80, 0.1);
 }
 

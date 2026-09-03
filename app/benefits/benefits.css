@@ -21,7 +21,8 @@
   isolation: isolate;
   overflow: hidden;
   margin-top: -92px;
-  padding: 140px 0 120px;
+  padding: 175px 0 160px;
+  min-height: 520px;
   text-align: center;
 }
 
@@ -30,7 +31,7 @@
 }
 
 .ben-hero.var2 {
-  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
+  background: transparent;
 }
 
 /* Var 1 Background */
@@ -47,20 +48,11 @@
   opacity: 0.85;
 }
 
-.ben-hero-var1-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 55% 42% at 50% 32%,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(191, 212, 255, 0.45) 36%,
-    transparent 68%
-  );
-  pointer-events: none;
-}
-
-.ben-hero-var1-fade {
-  display: none;
+.ben-hero-var1-glow,
+.ben-hero-var1-fade,
+.ben-hero-var2-glow,
+.ben-hero-var2-fade {
+  display: none !important;
 }
 
 /* Var 2 Background */
@@ -70,27 +62,29 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  background: linear-gradient(180deg, #375AC8 0%, #375AC8 38%, #4868d4 56%, #6c89e5 72%, #9cb5f3 86%, #d6e4fe 95%, #ffffff 100%);
+  background: linear-gradient(
+    180deg,
+    #1e47c6 0%,
+    #234ac9 25%,
+    #3559c7 40%,
+    rgba(53, 89, 199, 0.90) 50%,
+    rgba(53, 89, 199, 0.75) 60%,
+    rgba(53, 89, 199, 0.55) 70%,
+    rgba(53, 89, 199, 0.35) 78%,
+    rgba(53, 89, 199, 0.18) 85%,
+    rgba(53, 89, 199, 0.08) 91%,
+    rgba(53, 89, 199, 0.02) 96%,
+    transparent 100%
+  );
 }
 
 .ben-hero-var2 .ben-hero-dotgrid {
-  mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+  mask-image: linear-gradient(to bottom, black 38%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.15) 86%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, black 38%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.15) 86%, transparent 98%);
 }
 
 .ben-hero-var2 .ben-hero-dotgrid .dot-grid__canvas {
   opacity: 0.28;
-}
-
-.ben-hero-var2-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 58% 42% at 50% 36%,
-    rgba(255, 255, 255, 0.18) 0%,
-    transparent 64%
-  );
-  pointer-events: none;
 }
 
 /* Variant Switch Pill */
