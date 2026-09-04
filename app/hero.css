@@ -409,7 +409,7 @@ body {
 .integration-copy h2 span,
 .lineage-copy h2 span,
 .security-box h2 span {
-  color: #111b47;
+  color: #09122A;
 }
 
 .problem h2 span,
@@ -999,7 +999,7 @@ body {
 }
 
 .chero-h1 .strong {
-  color: #111b47;
+  color: #09122A;
   display: block;
   font-weight: 650;
 }
@@ -1170,7 +1170,7 @@ body {
   font-weight: 650;
   line-height: 1.1;
   letter-spacing: -0.025em;
-  color: #111b47;
+  color: #09122A;
   max-width: 400px;
   margin: 0 0 14px;
 }

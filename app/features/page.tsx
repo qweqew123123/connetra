@@ -2,7 +2,7 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer/Footer";
 import FeaturesHero from "../../components/features/FeaturesHero";
 import FeaturesShowcase from "../../components/features/FeaturesShowcase";
-import IntegrationsSection from "../../components/IntegrationsSection";
+import FeaturesIntegrations from "../../components/features/FeaturesIntegrations";
 import "./features.css";
 
 export default function FeaturesPage() {
@@ -11,7 +11,7 @@ export default function FeaturesPage() {
       <Nav />
       <FeaturesHero />
       <FeaturesShowcase />
-      <IntegrationsSection />
+      <FeaturesIntegrations />
       <Footer />
     </main>
   );
